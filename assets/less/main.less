@@ -18,3 +18,195 @@
 @import "layouts/_pages";            // Page styling
 @import "layouts/pages/_home";       // Home page styling
 @import "layouts/_posts";            // Post styling
+@import "animate";               // Animations
+
+/********* General Rules ***********/
+
+.navbar {
+	margin-bottom: 0px;
+}
+
+p { 
+	font-family: helvetica; 
+    font-size: 24px;
+}
+
+.row {
+	position: relative;
+}
+
+.navbar {
+	position: fixed;
+	width: 100%;
+	background: #221E1F;
+	border: none;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+	background-color: transparent;
+}
+
+header.banner {
+
+	.navbar-brand {
+		display: block;
+		background-image: url(../img/menu/logo.png);
+		background-repeat: no-repeat;
+		background-size: contain;
+		text-indent: -9999px;
+		width: 345px;
+		height: 90px;
+	}
+
+	.col-md-2 {
+		margin-top: 10px;
+	}
+
+	#menu-primary-navigation {
+
+		li {
+			float: left;
+			clear: both;
+
+			a {
+				padding-top: 0px;
+				padding-bottom: 0px;
+				color: white;
+				font-weight: 300;
+				text-transform: uppercase;
+				font-size: 8px;
+				letter-spacing: 1.5px;
+				line-height: 15px;
+			}
+		}
+
+		li.active a{
+			color: @brand-primary;
+		}
+	}
+
+	.dates {
+
+		img {
+			margin-bottom: 4px;
+			height: 26px;
+		}
+
+		ul {
+			list-style: none;
+			padding-left: 0px;
+			width: 100%;
+
+			li {
+				color: white;
+				font-weight: 300;
+				font-size: 8px;
+				letter-spacing: 1.5px;
+				text-transform: uppercase;
+				line-height: 15px;
+			}
+		}
+	}
+}
+
+.accent {
+	color: @brand-primary!important;
+}
+
+
+.wrap {
+	padding-top: 95px;
+}
+
+.video-container 
+{
+	z-index: -2;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    top: 0;
+}
+
+.video-container video 
+{
+    min-width: 100%;
+    min-height: 100%;
+    margin-top: 95px;
+}
+
+// ---------------  Section Rules ---------------//
+
+section.sub-section  {
+
+	position: relative;
+	overflow: hidden;
+	z-index: 0;
+
+	& > div {
+		min-height: 800px;
+	}
+}
+
+/********************* styles ********************/
+
+.absolute-container {
+	position: absolute;
+	left: 50%;
+	top: 100px;
+}
+
+.absolute-element {
+	position: relative;
+	left: -50%;
+	z-index: -1;
+}
+
+/************************** animations *************/
+
+.os-animation{
+  opacity: 0;
+}
+
+.os-animation.animated{
+    opacity: 1;
+}
+
+/********************** Fullscreen styles **************/
+
+/* background setup */
+.background {
+    background-repeat:no-repeat;
+    /* custom background-position */
+    background-position:50% 50%;
+    /* ie8- graceful degradation */
+    background-position:50% 50%\9 !important;
+}
+
+/* fullscreen setup */
+html, body {
+    /* give this to all tags from html to .fullscreen */
+    height:100%;
+}
+.fullscreen,
+.content-a {
+    width:100%;
+    min-height:100%;
+}
+.not-fullscreen,
+.not-fullscreen .content-a,
+.fullscreen.not-overflow,
+.fullscreen.not-overflow .content-a {
+    height:100%;
+}
+
+/* content centering styles */
+.content-a {
+	display:table;
+}
+.content-b {
+	display:table-cell;
+    position:relative;
+	vertical-align:middle;
+	text-align:center;
+}

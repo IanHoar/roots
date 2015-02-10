@@ -22,19 +22,85 @@ var Roots = {
   // All pages
   common: {
     init: function() {
-      // JavaScript to be fired on all pages
-    }
-  },
-  // Home page
-  home: {
-    init: function() {
-      // JavaScript to be fired on the home page
-    }
-  },
-  // About us page, note the change from about-us to about_us.
-  about_us: {
-    init: function() {
-      // JavaScript to be fired on the about us page
+
+      /* fix vertical when not overflow
+      call fullscreenFix() if .fullscreen content changes */
+      function fullscreenFix(){
+          var h = $('body').height();
+          // set .fullscreen height
+          $(".content-b").each(function(i){
+              if($(this).innerHeight() <= h){
+                  $(this).closest(".fullscreen").addClass("not-overflow");
+              }
+          });
+      }
+      $(window).resize(fullscreenFix);
+      fullscreenFix();
+
+//Scrollspy for menu highlighting
+      $('body').scrollspy({ target: '.navbar-collapse' });
+
+//Video play on scroll
+      var videos = $(".sub-section.inView .video");
+
+      (function loop() {
+
+        videos = $(".sub-section.inView .video");
+
+        $.each(videos, function(idx, video){
+    
+          video.currentTime = window.pageYOffset/800;
+        });
+
+        setTimeout(loop, 64); //recurse
+
+      })();
+
+      $(window).scroll(function(){
+        $.each(videos, function(idx, video){
+          video.pause();
+        });
+      });
+
+//add class to inview elements
+      $('.sub-section').bind('inview', function(event, isInView, visiblePartX, visiblePartY) {
+        if (isInView) 
+        {
+          $(this).addClass("inView");  
+        } 
+        else 
+        {
+          $(this).removeClass("inView");  
+        }
+      });
+
+//scroll animation triggering.
+      function onScrollInit( items, trigger ) {
+
+        items.each( function() {
+          var osElement = $(this),
+              osAnimationClass = osElement.attr('data-os-animation'),
+              osAnimationDelay = osElement.attr('data-os-animation-delay');
+            
+              osElement.css({
+                '-webkit-animation-delay':  osAnimationDelay,
+                '-moz-animation-delay':     osAnimationDelay,
+                'animation-delay':          osAnimationDelay
+              });
+
+              var osTrigger = ( trigger ) ? trigger : osElement;
+              
+              osTrigger.waypoint(function() {
+                osElement.addClass('animated').addClass(osAnimationClass);
+                },{
+                    triggerOnce: true,
+                    offset: '90%'
+              });
+        });
+      }
+
+       onScrollInit( $('.os-animation') );
+       onScrollInit( $('.staggered-animation'), $('.staggered-animation-container') );
     }
   }
 };
