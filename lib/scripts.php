@@ -35,7 +35,7 @@ function roots_scripts() {
       'modernizr' => '/assets/js/vendor/modernizr.min.js',
       'jquery'    => '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js',
       'waypoints' => '/assets/js/plugins/jquery.waypoints.min.js',      
-      'inView' => '/assets/js/plugins/jquery.inview.min.js',
+      'inView'    => '/assets/js/plugins/jquery.inview.min.js',
       'scrl2fixd' => '/assets/js/plugins/jquery.scrolltofixed.min.js'
     );
   }

@@ -23,8 +23,7 @@ var Roots = {
   common: {
     init: function() {
 
-      /* fix vertical when not overflow
-      call fullscreenFix() if .fullscreen content changes */
+//Adjust each section to be the full viewport size
       function fullscreenFix(){
           var h = $('body').height();
           // set .fullscreen height
@@ -39,6 +38,13 @@ var Roots = {
 
 //Scrollspy for menu highlighting
       $('body').scrollspy({ target: '.navbar-collapse' });
+
+// scroll to fixed 
+
+      $('#1a1').scrollToFixed( { marginTop: 95, limit: $('#1a2').offset().top - $('#1a1').height() - 300 } );
+      $('#1a2').scrollToFixed( { marginTop: 95, limit: $('#1a3').offset().top - $('#1a2').height() - 300 } );
+      $('#1a3').scrollToFixed( { marginTop: 95 } );
+
 
 //Video play on scroll
       var videos = $(".sub-section.inView .video");
@@ -57,6 +63,7 @@ var Roots = {
       })();
 
       $(window).scroll(function(){
+        // $('.push-fade').css({'opacity':( 695-$(window).scrollTop() )/500});
         $.each(videos, function(idx, video){
           video.pause();
         });
@@ -64,14 +71,14 @@ var Roots = {
 
 //add class to inview elements
       $('.sub-section').bind('inview', function(event, isInView, visiblePartX, visiblePartY) {
-        if (isInView) 
-        {
-          $(this).addClass("inView");  
-        } 
-        else 
-        {
-          $(this).removeClass("inView");  
-        }
+          if (isInView) 
+          {
+            $(this).addClass("inView");  
+          } 
+          else 
+          {
+            $(this).removeClass("inView");  
+          }
       });
 
 //scroll animation triggering.
@@ -101,6 +108,7 @@ var Roots = {
 
        onScrollInit( $('.os-animation') );
        onScrollInit( $('.staggered-animation'), $('.staggered-animation-container') );
+
     }
   }
 };
