@@ -34,9 +34,7 @@ function roots_scripts() {
       'js'        => '/assets/js/scripts.min.js?' . $assets['assets/js/scripts.min.js']['hash'],
       'modernizr' => '/assets/js/vendor/modernizr.min.js',
       'jquery'    => '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js',
-      'waypoints' => '/assets/js/plugins/jquery.waypoints.min.js',      
-      'inView'    => '/assets/js/plugins/jquery.inview.min.js',
-      'scrl2fixd' => '/assets/js/plugins/jquery.scrolltofixed.min.js'
+      'covervid'  => '/assets/js/plugins/jquery.covervid.min.js',
     );
   }
 
@@ -60,9 +58,7 @@ function roots_scripts() {
   wp_enqueue_script('modernizr', get_template_directory_uri() . $assets['modernizr'], array(), null, true);
   wp_enqueue_script('jquery');
   wp_enqueue_script('roots_js', get_template_directory_uri() . $assets['js'], array(), null, true);
-  wp_enqueue_script('waypoints');
-  wp_enqueue_script('inView');
-  wp_enqueue_script('scrl2fixd');
+  wp_enqueue_script('covervid');
 }
 add_action('wp_enqueue_scripts', 'roots_scripts', 100);
 

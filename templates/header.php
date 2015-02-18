@@ -1,6 +1,6 @@
 <header class="banner navbar navbar-default navbar-static-top" role="banner">
   <div class="container">
-    <div class="navbar-header col-md-8">
+    <div class="navbar-header col-md-3">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
@@ -10,7 +10,7 @@
       <a class="navbar-brand" href="<?php echo esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a>
     </div>
 
-    <div class="col-md-2">
+    <div class="col-md-7" id="section-nav">
       <nav class="collapse navbar-collapse" role="navigation">
         <?php
           if (has_nav_menu('primary_navigation')) :
@@ -19,15 +19,15 @@
         ?>
       </nav>
     </div>
-    <div class="col-md-2 dates">
-      <a href="<?php echo esc_url(home_url('/')); ?>">
-        <img src="<?php  bloginfo('template_directory'); ?>/assets/img/menu/rbcm.png">
-      </a>
+    <div class="col-md-2" id="dates">
       <ul>
         <li class="accent">Dates</li>
-        <li>Open April 1, 2015</li>
-        <li>Through Sept 20, 2015</li>
+        <li>Open MAY 15, 2015</li>
+        <li>Through OCT 31, 2015</li>
       </ul>
+      <a href="#" class="btn-default">Buy Tickets</a>
     </div>
   </div>
+  <a href="<?php echo esc_url(home_url('/')); ?>" id="rbcm-logo">
+  </a>
 </header>

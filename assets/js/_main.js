@@ -1,27 +1,4 @@
-/* ========================================================================
- * DOM-based Routing
- * Based on http://goo.gl/EUTi53 by Paul Irish
- *
- * Only fires on body classes that match. If a body class contains a dash,
- * replace the dash with an underscore when adding it to the object below.
- *
- * .noConflict()
- * The routing is enclosed within an anonymous function so that you can 
- * always reference jQuery with $, even when in .noConflict() mode.
- *
- * Google CDN, Latest jQuery
- * To use the default WordPress version of jQuery, go to lib/config.php and
- * remove or comment out: add_theme_support('jquery-cdn');
- * ======================================================================== */
-
 (function($) {
-
-// Use this variable to set up the common and page specific functions. If you 
-// rename this variable, you will also need to rename the namespace below.
-var Roots = {
-  // All pages
-  common: {
-    init: function() {
 
 //Adjust each section to be the full viewport size
       function fullscreenFix(){
@@ -34,104 +11,78 @@ var Roots = {
           });
       }
       $(window).resize(fullscreenFix);
+
       fullscreenFix();
+
+//Background: cover for video
+      $('.covervid-video').coverVid(2200, 1000);
 
 //Scrollspy for menu highlighting
       $('body').scrollspy({ target: '.navbar-collapse' });
 
-// scroll to fixed 
+//fix the current container
+      var sticky_section_offset_top = $('.sticky_section').offset().top;
+      var topMargin = parseInt($(".wrap").css("paddingTop"));
+      
+      var sticky_section = function(){
 
-      $('#1a1').scrollToFixed( { marginTop: 95, limit: $('#1a2').offset().top - $('#1a1').height() - 300 } );
-      $('#1a2').scrollToFixed( { marginTop: 95, limit: $('#1a3').offset().top - $('#1a2').height() - 300 } );
-      $('#1a3').scrollToFixed( { marginTop: 95 } );
+        var scroll_top = $(window).scrollTop();
+        var sub_sections = $(".sub-section");
+        
+        sub_sections.each(function(){
 
+          var sub_section_top = $(this).offset().top;
+          var sub_section_height = $(this).height();
+          var window_height = $(window).height();
 
-//Video play on scroll
-      var videos = $(".sub-section.inView .video");
+          var top_in = scroll_top + window_height > sub_section_top - topMargin;
+          var bot_in = scroll_top < sub_section_top + sub_section_height;
 
-      (function loop() {
-
-        videos = $(".sub-section.inView .video");
-
-        $.each(videos, function(idx, video){
-    
-          video.currentTime = window.pageYOffset/800;
-        });
-
-        setTimeout(loop, 64); //recurse
-
-      })();
-
-      $(window).scroll(function(){
-        // $('.push-fade').css({'opacity':( 695-$(window).scrollTop() )/500});
-        $.each(videos, function(idx, video){
-          video.pause();
-        });
-      });
-
-//add class to inview elements
-      $('.sub-section').bind('inview', function(event, isInView, visiblePartX, visiblePartY) {
-          if (isInView) 
+          if (top_in && bot_in)
           {
-            $(this).addClass("inView");  
-          } 
-          else 
-          {
-            $(this).removeClass("inView");  
-          }
-      });
+            var percentageScrolled = (scroll_top - sub_section_top) / sub_section_height;
+            var numberOfChildren = $(this).find(".content-a").length + 1; //add 1 for buffer on last section
+            var step = Math.max(Math.floor(percentageScrolled * numberOfChildren), 0);
 
-//scroll animation triggering.
-      function onScrollInit( items, trigger ) {
+            if ($(this).hasClass("step-"+step) === false)
+            {
+              $(this).removeClass();
+              $(this).addClass("sub-section step-" + step);
+              var firstElement = $(this).find(".fullscreen:nth-child(1)");
+              firstElement.css({"marginTop": -(window_height*step)});
 
-        items.each( function() {
-          var osElement = $(this),
-              osAnimationClass = osElement.attr('data-os-animation'),
-              osAnimationDelay = osElement.attr('data-os-animation-delay');
-            
-              osElement.css({
-                '-webkit-animation-delay':  osAnimationDelay,
-                '-moz-animation-delay':     osAnimationDelay,
-                'animation-delay':          osAnimationDelay
-              });
+              // add active class to fade in entering elements
+              $(this).find(".active").removeClass("active");
 
-              var osTrigger = ( trigger ) ? trigger : osElement;
+              var activeElementIndex = step + 1;
+              var enteringElement = $(this).find(".fullscreen:nth-child("+activeElementIndex+")");
+
+              enteringElement.addClass('active');
+
+              var animatableElements = $(this).find(".os-animation");
+
+              animatableElements.each(function(){
+                var osElement        = $(this);
+                var osAnimationClass = osElement.attr('data-os-animation');
+                var osAnimationDelay = osElement.attr('data-os-animation-delay');
               
-              osTrigger.waypoint(function() {
+                osElement.css({
+                  '-webkit-animation-delay':  osAnimationDelay,
+                  '-moz-animation-delay':     osAnimationDelay,
+                  'animation-delay':          osAnimationDelay
+                });
+                  
                 osElement.addClass('animated').addClass(osAnimationClass);
-                },{
-                    triggerOnce: true,
-                    offset: '90%'
               });
+            }
+          }
         });
-      }
-
-       onScrollInit( $('.os-animation') );
-       onScrollInit( $('.staggered-animation'), $('.staggered-animation-container') );
-
-    }
-  }
-};
-
-// The routing fires all common scripts, followed by the page specific scripts.
-// Add additional events for more control over timing e.g. a finalize event
-var UTIL = {
-  fire: function(func, funcname, args) {
-    var namespace = Roots;
-    funcname = (funcname === undefined) ? 'init' : funcname;
-    if (func !== '' && namespace[func] && typeof namespace[func][funcname] === 'function') {
-      namespace[func][funcname](args);
-    }
-  },
-  loadEvents: function() {
-    UTIL.fire('common');
-
-    $.each(document.body.className.replace(/-/g, '_').split(/\s+/),function(i,classnm) {
-      UTIL.fire(classnm);
-    });
-  }
-};
-
-$(document).ready(UTIL.loadEvents);
+      };
+      
+      sticky_section();
+      
+      $(window).scroll(function() {
+         sticky_section();
+      });
 
 })(jQuery); // Fully reference jQuery after this point.

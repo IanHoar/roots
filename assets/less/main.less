@@ -18,7 +18,7 @@
 @import "layouts/_pages";            // Page styling
 @import "layouts/pages/_home";       // Home page styling
 @import "layouts/_posts";            // Post styling
-@import "animate";               // Animations
+@import "animate";                   // Animations
 
 /********* General Rules ***********/
 
@@ -38,7 +38,7 @@ p {
 .navbar {
 	position: fixed;
 	width: 100%;
-	background: #221E1F;
+	background:#232020;
 	border: none;
 }
 
@@ -52,16 +52,16 @@ header.banner {
 
 	.navbar-brand {
 		display: block;
-		background-image: url(../img/menu/logo.png);
+		background-image: url(../img/menu/header-logo.png);
 		background-repeat: no-repeat;
 		background-size: contain;
 		text-indent: -9999px;
 		width: 345px;
-		height: 90px;
+		height: @header-height;
 	}
 
-	.col-md-2 {
-		margin-top: 10px;
+	#section-nav {
+		margin-top: 15px;
 	}
 
 	#menu-primary-navigation {
@@ -85,14 +85,18 @@ header.banner {
 		li.active a{
 			color: @brand-primary;
 		}
+
+		li.active a:before {
+		    content: url(../img/menu/arrow.png);
+		    position: absolute;
+		    margin-left: -16px;
+		    margin-top: 1px;
+		}
 	}
 
-	.dates {
+	#dates {
 
-		img {
-			margin-bottom: 4px;
-			height: 26px;
-		}
+		margin-top: 15px;
 
 		ul {
 			list-style: none;
@@ -108,6 +112,30 @@ header.banner {
 				line-height: 15px;
 			}
 		}
+
+		.btn-default {
+			color: @brand-primary;
+			font-size: 12px;
+			background: transparent;
+			padding: 2px 6px 2px 6px;
+			border: solid @brand-primary 1px;
+			text-transform: uppercase;
+			text-decoration: none;
+			cursor: pointer;
+		}
+	}
+
+	#rbcm-logo {
+		position: absolute;
+		right: 0;
+		top: 0;
+		background: @brand-primary;
+		display: block;
+		width: @header-height;
+		height: @header-height;
+		background-image: url(../img/menu/rbcm-logo.png);
+		background-repeat: no-repeat;
+		background-position: center;
 	}
 }
 
@@ -117,10 +145,10 @@ header.banner {
 
 
 .wrap {
-	padding-top: 95px;
+	padding-top: @header-height;
 }
 
-.video-container 
+.covervid-wrapper 
 {
 	z-index: -2;
     position: fixed;
@@ -128,13 +156,7 @@ header.banner {
     width: 100%;
     overflow: hidden;
     top: 0;
-}
-
-.video-container video 
-{
-    min-width: 100%;
-    min-height: 100%;
-    margin-top: 95px;
+    left: 0;
 }
 
 // ---------------  Section Rules ---------------//
@@ -144,28 +166,76 @@ section.sub-section  {
 	position: relative;
 	overflow: hidden;
 	z-index: 0;
+	height: 6000px;
 
-	& > div {
-		min-height: 1200px;
+	.fullscreen {
+		-webkit-transition: margin 1s ease-in-out, opacity 0.75s ease-in-out;
+	    -moz-transition: margin 1s ease-in-out, opacity 0.75s ease-in-out;
+	    -o-transition: margin 1s ease-in-out, opacity 0.75s ease-in-out;
+	    transition: margin 1s ease-in-out, opacity 0.75s ease-in-out;
+	}
+
+	.active {
+		-webkit-transition: margin 1s ease-in-out, opacity 1.5s ease-in-out;
+	    -moz-transition: margin 1s ease-in-out, opacity 1.5s ease-in-out;
+	    -o-transition: margin 1s ease-in-out, opacity 1.5s ease-in-out;
+	    transition: margin 1s ease-in-out, opacity 1.5s ease-in-out;
+	}
+
+	&.inView {
+		visibility: visible;
+	}
+
+	.fullscreen.fadeable {
+		opacity: 0;
+	}
+
+	.fullscreen.active {
+		opacity: 1
 	}
 }
 
-#a3 {
-	margin-top: 100px;
+.sticky_section {
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0px;
 }
 
 /********************* styles ********************/
 
-.absolute-container {
+#golden-thread {
 	position: absolute;
-	left: 50%;
-	top: 100px;
+	margin-top: -40px;
+	z-index: -1;
 }
 
-.absolute-element {
-	position: relative;
-	left: -50%;
-	z-index: -1;
+#section-1B {
+
+	.fade-to-black-overlay {
+		width:100%;
+		height: 100%;
+		background-image: -webkit-linear-gradient(top, 
+		    rgba(0,0,0,0) 0%, 
+		    rgba(0,0,0,0) 80%,
+		    rgba(0,0,0,0.9) 100%
+		 );
+	}
+}
+
+#section-1C {
+
+	.fade-from-black-overlay {
+		width:100%;
+		height: 100%;
+		background-image: -webkit-linear-gradient(top, 
+		    rgba(0,0,0,1.0) 0%, 
+		    rgba(0,0,0,0) 20%,
+		    rgba(0,0,0,0) 100%
+		 );
+	}
+
 }
 
 /************************** animations *************/
@@ -190,15 +260,16 @@ section.sub-section  {
 }
 
 /* fullscreen setup */
-html, body {
-    /* give this to all tags from html to .fullscreen */
+html,body {
     height:100%;
 }
+
 .fullscreen,
 .content-a {
     width:100%;
     min-height:100%;
 }
+
 .not-fullscreen,
 .not-fullscreen .content-a,
 .fullscreen.not-overflow,
@@ -213,6 +284,6 @@ html, body {
 .content-b {
 	display:table-cell;
     position:relative;
-	// vertical-align:middle;
+	vertical-align:middle;
 	text-align:center;
 }
