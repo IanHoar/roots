@@ -4,10 +4,11 @@
 
 	<div class="sticky_section"> 
 		<div class="fullscreen fadeable">
-			<div class="content-a os-animation" data-os-animation="fadeIn" data-os-animation-delay="0.5s">
+			<div class="content-a">
 				<div class="content-b">
-				    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/1A/1-A1-logo-english.png"> <br />
-				    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/1A/1-A1-rbcmlogo.png" class="os-animation" data-os-animation="fadeInUp" data-os-animation-delay="2s"> 
+				    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/1A/1-A1-logo-french.png" id="logo-french" class="os-animation" data-os-animation="fadeInLeft" data-os-animation-delay="1.5s">
+				    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/1A/1-A1-logo-english.png">
+				    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/1A/1-A1-logo-chinese.png" id="logo-chinese" class="os-animation" data-os-animation="fadeInRight" data-os-animation-delay="2s">				
 				</div>
 			</div>
 		</div>

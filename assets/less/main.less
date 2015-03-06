@@ -22,24 +22,16 @@
 
 /********* General Rules ***********/
 
+body {
+	background-color: black;
+}
+
 .navbar {
 	margin-bottom: 0px;
 }
 
-p { 
-	font-family: helvetica; 
-    font-size: 24px;
-}
-
 .row {
 	position: relative;
-}
-
-.navbar {
-	position: fixed;
-	width: 100%;
-	background:#232020;
-	border: none;
 }
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
@@ -49,6 +41,11 @@ p {
 header.banner {
 
 	top: 0;
+	position: fixed;
+	width: 100%;
+	background:#232020;
+	border: none;
+	border-bottom: 1px solid @brand-primary;
 
 	.navbar-brand {
 		display: block;
@@ -122,20 +119,26 @@ header.banner {
 			text-transform: uppercase;
 			text-decoration: none;
 			cursor: pointer;
+			font-weight: 600;
 		}
 	}
 
 	#rbcm-logo {
-		position: absolute;
-		right: 0;
-		top: 0;
-		background: @brand-primary;
-		display: block;
-		width: @header-height;
-		height: @header-height;
-		background-image: url(../img/menu/rbcm-logo.png);
-		background-repeat: no-repeat;
-		background-position: center;
+		position: relative;
+		max-width: @header-height;
+		float: right;
+
+		a { 
+			position: absolute;
+			display: block;
+			background: @brand-primary;
+			width: 100%;
+			height: @header-height;
+			background-image: url(../img/menu/rbcm-logo.png);
+			background-repeat: no-repeat;
+			background-position: center;
+			right: -15px;
+		}
 	}
 }
 
@@ -148,20 +151,167 @@ header.banner {
 	padding-top: @header-height;
 }
 
-.covervid-wrapper 
-{
+.covervid-wrapper {
 	z-index: -2;
     position: fixed;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
+    margin-top: @header-height;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.align-right {
+	float: right;
+	margin-right: 100px;
+}
+
+.extend-above {
+	position: absolute;
+	margin-top: -800px;
+	z-index: 99;
+	width: 100%;
+
+	img {
+		display: block;
+		margin: auto;
+	}
+}
+
+footer.content-info {
+
+	overflow: hidden;
+
+	.container-fluid {
+		background:#232020;
+		height: @footer-height;
+	}
+
+	#rbcm-logo-footer {
+		position: relative;
+		height: 100%;
+
+		a { 
+			position: absolute;
+			display: block;
+			background: @brand-primary;
+			width: 100%;
+			height: 100%;
+			background-image: url(../img/menu/rbcm-logo.png);
+			background-repeat: no-repeat;
+			background-position: bottom;
+			right: -15px;
+		}
+	}
+
+	#tourism {
+		border-left: 1px solid rgba(255, 255, 255, 0.4);
+		margin-top: 40px;
+		margin-bottom: 30px;
+		height: 235px;
+
+		img {
+			display: block;
+			margin: auto;
+
+			&:nth-child(2) {
+				margin-top: 30px;
+				margin-bottom: 30px;
+			}
+		}
+	}
+
+	#allure {
+		border-left: 1px solid rgba(255, 255, 255, 0.4);
+		margin-top: 40px;
+		margin-bottom: 30px;
+		height: 235px;
+
+		img {
+			display: block;
+			margin: auto;
+
+			&:nth-child(1) {
+				margin-bottom: 87px;
+			}
+		}
+	}
+
+	#gold-rush-footer {
+		margin-top: 40px;
+		margin-bottom: 30px;
+		height: 235px;
+		img {
+			display: block;
+			margin: auto;
+
+			&:nth-child(1) {
+				margin-bottom: 87px;
+			}
+		}
+	}
+
+	#dates-footer {
+
+		margin-top: 40px;
+
+		ul {
+			list-style: none;
+			padding-left: 0px;
+			width: 100%;
+			margin-bottom: 25px;
+
+			li {
+				color: white;
+				font-weight: 300;
+				font-size: 10px;
+				letter-spacing: 1.5px;
+				text-transform: uppercase;
+				line-height: 15px;
+			}
+
+			li.accent {
+				font-size: 12px;
+				margin-bottom: 10px;
+			}
+		}
+
+		.btn-default {
+			color: white;
+			font-size: 14px;
+			background: @brand-primary;
+			padding: 6px 14px 6px 14px;
+			border: solid white 1px;
+			text-transform: uppercase;
+			text-decoration: none;
+			cursor: pointer;
+			margin-top: 10px;
+			font-weight: 600;
+		}
+
+		p {
+			color: rgba(255, 255, 255, 0.8);
+			font-family: @font-family-sans-serif;
+			margin-top: 30px;
+			line-height: 15px;
+			letter-spacing: 1.5px;
+			font-weight: 300;
+			font-size: 11px;
+			max-width: 188px;
+		}
+
+		a:not(.btn-default) {
+		    margin-top: 16px;
+		    display: block;
+  			color: rgba(255, 255, 255, 0.5);
+			font-size: 10px;
+		}
+	}
 }
 
 // ---------------  Section Rules ---------------//
 
-section.sub-section  {
+section.sub-section {
 
 	position: relative;
 	overflow: hidden;
@@ -169,46 +319,158 @@ section.sub-section  {
 	height: 6000px;
 
 	.fullscreen {
-		-webkit-transition: margin 1s ease-in-out, opacity 0.75s ease-in-out;
-	    -moz-transition: margin 1s ease-in-out, opacity 0.75s ease-in-out;
-	    -o-transition: margin 1s ease-in-out, opacity 0.75s ease-in-out;
-	    transition: margin 1s ease-in-out, opacity 0.75s ease-in-out;
+		-webkit-transition: opacity 0.75s ease-in-out;
+	    -moz-transition: opacity 0.75s ease-in-out;
+	    -o-transition: opacity 0.75s ease-in-out;
+	    transition: opacity 0.75s ease-in-out;
 	}
 
 	.active {
-		-webkit-transition: margin 1s ease-in-out, opacity 1.5s ease-in-out;
-	    -moz-transition: margin 1s ease-in-out, opacity 1.5s ease-in-out;
-	    -o-transition: margin 1s ease-in-out, opacity 1.5s ease-in-out;
-	    transition: margin 1s ease-in-out, opacity 1.5s ease-in-out;
+		-webkit-transition:  opacity 1.5s ease-in-out;
+	    -moz-transition:  opacity 1.5s ease-in-out;
+	    -o-transition:  opacity 1.5s ease-in-out;
+	    transition:  opacity 1.5s ease-in-out;
+	}
+
+	.no-animation {
+		-webkit-transition:  opacity 0s ease-in-out;
+	    -moz-transition:  opacity 0s ease-in-out;
+	    -o-transition:  opacity 0s ease-in-out;
+	    transition:  opacity 0s ease-in-out;
+	}
+
+	.crossfade {
+		position: relative;
 	}
 
 	&.inView {
 		visibility: visible;
 	}
 
-	.fullscreen.fadeable {
+	.fullscreen.fadeable{
 		opacity: 0;
 	}
 
-	.fullscreen.active {
+	.fullscreen.active{
 		opacity: 1
 	}
 }
 
 .sticky_section {
-	z-index: 1;
 	width: 100%;
 	height: 100%;
 	position: fixed;
-	top: 0px;
+	top: @header-height;
+}
+
+.absolute-outer {
+	position: absolute;
+	left: 50%;
+}
+
+.absolute-inner {
+	position: relative; 
+	left: -50%;
+}
+
+.gold-circle {
+	background-image: url(../img/goldcircle.png);
+	background-position: center;
+	background-repeat: no-repeat;
 }
 
 /********************* styles ********************/
 
-#golden-thread {
+.overlap-above {
+	margin-top: 350px;
+	position: relative;
+	z-index: 2;
+}
+
+.coin-text {
+	margin-top: -130px;
+}
+
+#scroll-down {
+	color: rgba(255, 255, 255, 0.5); 
+	text-align: center;
+	cursor: pointer;
+}
+
+.golden-thread {
+	width:2px;
 	position: absolute;
-	margin-top: -40px;
+	left: 50%;
+	opacity: 1!important;
 	z-index: -1;
+
+	&.gt-bottom {
+		top:50%;
+	}
+
+	&.gt-top {
+		bottom: 65%;
+		height: 50%;
+	}
+
+	&.gt-full {
+		top: 0;
+	}
+}
+
+.info-button {
+	display: block;
+	background: url(../img/flyout/info-button.png);
+	width: 44px;
+	height: 44px;
+	position: fixed;
+	bottom: 0px;
+	right: 0px;
+}
+
+.popover {
+	background-color: black;
+	color: white;
+	border-radius: 0;	
+	bottom: 0!important;
+	right: 0!important;
+	top: auto!important;
+	left:auto!important;
+	border: 0px;
+	background-image: url(../img/flyout/exit.png);
+	background-repeat: no-repeat;
+	background-position: 98% 90%;
+	cursor: pointer;
+
+	.arrow {
+		display: none;
+	}
+
+	.popover-content {
+		font-family: @font-family-sans-serif;
+		font-weight: 300;
+		text-transform: uppercase;
+		font-size: 10px;
+		letter-spacing: 1.5px;
+		line-height: 15px;
+		padding: 20px 30px;
+	}
+}
+
+.info-button:hover {
+	background: url(../img/flyout/info-button-HOVER.png);
+}
+
+#section-1A {
+	#logo-french {
+		width: 200px;
+		margin-right: 80px;
+	}
+
+	#logo-chinese {
+		width: 200px;
+		margin-left: 80px;
+	}
 }
 
 #section-1B {
@@ -219,23 +481,148 @@ section.sub-section  {
 		background-image: -webkit-linear-gradient(top, 
 		    rgba(0,0,0,0) 0%, 
 		    rgba(0,0,0,0) 80%,
-		    rgba(0,0,0,0.9) 100%
+		    rgba(0,0,0,1.0) 100%
 		 );
 	}
 }
 
 #section-1C {
 
-	.fade-from-black-overlay {
+	.fade-both-overlay {
 		width:100%;
 		height: 100%;
 		background-image: -webkit-linear-gradient(top, 
 		    rgba(0,0,0,1.0) 0%, 
 		    rgba(0,0,0,0) 20%,
-		    rgba(0,0,0,0) 100%
+		    rgba(0,0,0,0) 80%,
+		    rgba(0,0,0,1.0) 100%
 		 );
 	}
 
+	.content-a {
+		overflow: hidden;
+	}
+}
+
+#section-2A {
+	
+	.bottom-container {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		height: 100%;
+
+		img  {
+			bottom: 0;
+
+			&.left {
+				left: 0;
+				position: absolute;
+			}
+
+			&.right {
+				right: 0;
+				position: absolute;
+			}
+
+			&.center {
+				
+			}
+		}
+	}
+}
+
+#section3 {
+
+	section.sub-section {
+		height: 8000px;
+	}
+
+	.active #section_3_video {
+		opacity: 1!important;
+	}
+
+	#section_3_video
+	{
+		opacity: 0;
+		-webkit-transition: opacity 1.5s ease-in-out;
+	    -moz-transition: opacity 1.5s ease-in-out;
+	    -o-transition: opacity 1.5s ease-in-out;
+	    transition: opacity 1.5s ease-in-out;
+	}
+
+}
+
+#section4a {
+
+	// z-index: 1;
+	section.sub-section {
+		height: 4650px;
+
+		img {
+			margin-bottom: 600px;
+		}
+	}
+}
+
+#section4b {
+	overflow-x: scroll;
+
+	section.sub-section {
+		height: 1000px !important;
+		width: 6607px;
+	}
+}
+
+#section4c {
+
+	section.sub-section {
+		height: 3000px;
+	}
+}
+
+
+#section4e {
+
+	section.sub-section {
+		height: 8000px;
+	}
+
+	.alpha-bg {
+		position: absolute;
+		background-color: rgba(0, 0, 0, 0.7);
+		background-image: url(../img/4E/4E-goldlines.png);
+		background-position: center center;
+		background-repeat: no-repeat;
+		width: 100%;
+		bottom:0;
+		text-align: center;
+	}
+}
+
+#section5 {
+	
+	.absolute-outer {
+
+		margin-top: 40px;
+	}
+
+	.fade-in-overlay {
+		width:100%;
+		height: 100%;
+		background-image: -webkit-linear-gradient(top, 
+		    rgba(0,0,0,1.0) 0%, 
+		    rgba(0,0,0,0) 20%,
+		 );
+	}
+}
+
+#section5b {
+	height: 2000px;
+}
+
+#section-1C {
+	height: 10000px;
 }
 
 /************************** animations *************/
@@ -253,15 +640,16 @@ section.sub-section  {
 /* background setup */
 .background {
     background-repeat:no-repeat;
-    /* custom background-position */
-    background-position:50% 50%;
-    /* ie8- graceful degradation */
-    background-position:50% 50%\9 !important;
 }
 
 /* fullscreen setup */
 html,body {
     height:100%;
+}
+
+.fullscreen:not(.gold-circle) {
+	background-size: cover !important;
+	background-position: center!important;
 }
 
 .fullscreen,
@@ -275,6 +663,10 @@ html,body {
 .fullscreen.not-overflow,
 .fullscreen.not-overflow .content-a {
     height:100%;
+}
+
+.parallax {
+	background-attachment: fixed!important;
 }
 
 /* content centering styles */
