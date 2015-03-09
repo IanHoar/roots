@@ -8,31 +8,6 @@
         $("html, body").animate({ scrollTop: $('#scroll-down-target').offset().top }, 1000);
     }); 
 
-    $("#section4b").mousewheel(function(event, delta) {
-
-      console.log("mousewheel");
-      var eTop = $(this).offset().top; //get the offset top of the element
-      var eBottom = eTop + 1000; //get the offset top of the element
-      var eWidth = $(this).width();
-      var scrollWidth = $(this).find(".sub-section").width();
-
-      var bottomIsAboveWindowBottom = eBottom - ($(window).scrollTop() + $(window).height()) > 0 && delta > 0;
-      var topIsAboveWindowTop = eTop - $(window).scrollTop() < 0 && delta < 0;
-
-      if (bottomIsAboveWindowBottom || topIsAboveWindowTop)
-      {
-        if (this.scrollLeft - delta > 0)
-        {
-          if (this.scrollLeft + eWidth < scrollWidth )
-          {
-            this.scrollLeft -= (delta);
-            event.preventDefault();
-          }
-        }
-      }
-   });
-
-
 // Popover click
       $('[data-toggle="popover"]').popover({
            trigger: 'click',
@@ -103,19 +78,15 @@
       });
 
 //Scrollspy for menu highlighting
-      $('body').scrollspy({ target: '.navbar-collapse' });
-
-//stack the subsections
-
-        var subsections =  $('.stackable-section .sub-section');
-        $.each(subsections, function( index, element ){
-          var zIndex = -index;
-          $(element).css( "zIndex", zIndex );
-        });
+      $('body').scrollspy({ 
+        target: '.navbar-collapse', 
+        offset: pageTopMargin,
+      });
 
 //fix the current container
       var sticky_section_offset_top = $('.sticky_section').offset().top;
       var topMargin = parseInt($(".wrap").css("paddingTop"));
+      var isCrossfading = false;
       
       var sticky_section = function(){
 
@@ -134,15 +105,15 @@
           if (top_in && bot_in)
           {
             var percentageScrolled = (scroll_top - sub_section_top) / sub_section_height;
-            var numberOfChildren = $(this).find(".content-a").length + 0.5; //add 1 for buffer on last section
+            var numberOfChildren = $(this).find(".content-a").length;
             var step = Math.max(Math.floor(percentageScrolled * numberOfChildren), 0);
 
-            console.log(step, numberOfChildren);
-
-            if ($(this).hasClass("step-"+step) === false && step < numberOfChildren - 0.5)
+            if ($(this).hasClass("step-"+step) === false && step < numberOfChildren + 0.5 && isCrossfading === false)
             {
               $(this).removeClass();
               $(this).addClass("sub-section step-" + step);
+              $(".active_section").removeClass('active_section');
+              $(this).parent().addClass("active_section");
 
               // add active class to fade in entering elements
               var exitingElement = $(this).find(".active");
@@ -158,73 +129,71 @@
 
               var delay = (shouldDelay ? 750 : 0);
               var animTime = (shouldNotAnimate || shouldCrossfade ? 0 : 1000);
-              var newMarginTop = -(window_height - pageTopMargin) * step;
+              var shouldInvert = $(this).parent().hasClass("invert");
+              var shouldScrollBg = $(this).parent().hasClass("slide_right");
+              var pageSize = (window_height - pageTopMargin);
+              var newMarginTop = (shouldInvert) ? - pageSize * (numberOfChildren - 1 - step) : -pageSize * step;
+              var propertyToAnimate = shouldScrollBg ? "marginLeft" : "marginTop";
 
-              firstElement.delay().animate({ marginTop:  newMarginTop}, animTime, function(){
-                     
-                     // animate elements on incoming active section
-                      var animatableElements = enteringElement.find(".os-animation");
+              firstElement.delay(delay).stop().animate({ marginTop:  newMarginTop}, animTime, function(){  
+                 // animate elements on incoming active section
+                  var animatableElements = enteringElement.find(".os-animation");
 
-                      animatableElements.each(function(){
-                        var osElement        = $(this);
-                        var osAnimationClass = osElement.attr('data-os-animation');
-                        var osAnimationDelay = osElement.attr('data-os-animation-delay');
+                  animatableElements.each(function(){
+                    var osElement        = $(this);
+                    var osAnimationClass = osElement.attr('data-os-animation');
+                    var osAnimationDelay = osElement.attr('data-os-animation-delay');
+                  
+                    osElement.css({
+                      '-webkit-animation-delay':  osAnimationDelay,
+                      '-moz-animation-delay':     osAnimationDelay,
+                      'animation-delay':          osAnimationDelay
+                    });
                       
-                        osElement.css({
-                          '-webkit-animation-delay':  osAnimationDelay,
-                          '-moz-animation-delay':     osAnimationDelay,
-                          'animation-delay':          osAnimationDelay
-                        });
-                          
-                        osElement.addClass('animated').addClass(osAnimationClass);
-                      });
+                    osElement.addClass('animated').addClass(osAnimationClass);
+                  });
 
-                      if (exitingElement.hasClass("resettable"))
-                      {
-                        var resetableElements = exitingElement.find(".os-animation");
+                  if (exitingElement.hasClass("resettable"))
+                  {
+                    var resetableElements = exitingElement.find(".os-animation");
 
-                        resetableElements.each(function(){
-                          var osElement        = $(this);
-                          var osAnimationClass = osElement.attr('data-os-animation');
-                            
-                          osElement.removeClass('animated').removeClass(osAnimationClass);
-                        });
-                      }
+                    resetableElements.each(function(){
+                      var osElement        = $(this);
+                      var osAnimationClass = osElement.attr('data-os-animation');
+                        
+                      osElement.removeClass('animated').removeClass(osAnimationClass);
+                    });
+                  }
               });
+
+              if (shouldScrollBg)
+              {
+                var bgContainer = $(this).find(".sticky_section");
+                var percentageToMove = (100/numberOfChildren-1) * step;
+                bgContainer.animate({
+                  'background-position-x': percentageToMove + '%',
+                }, 2000);
+              }
 
               enteringElement.addClass('active');
 
-              if (shouldCrossfade)
+              if (shouldCrossfade && isCrossfading === false)
               {
-                  var exitingMarginTopBeforeCrossfade = exitingElement.css("marginTop");
-                  var enteringMarginTopBeforeCrossfade = enteringElement.css("marginTop");
+                isCrossfading = true;
+                var clonedExitingElement = exitingElement.clone(true);
 
-                  if(enteringElement.index() > exitingElement.index()) 
-                  {
-                    //scrolling down
-                    exitingElement.css({marginTop: exitingElement.index() === 0 ? 0 :  window_height - pageTopMargin, position: "absolute"});
-                    enteringElement.css({marginTop: exitingElement.index() === 0 ? 0 :  window_height - pageTopMargin, opacity: 0, zIndex: 99});
-                  }
-                  else
-                  {
-                    //scrolling up
-                    exitingElement.css({marginTop: -(window_height - pageTopMargin), position: "absolute"});
-                    enteringElement.css({opacity: 0, zIndex: 99});
-                  }
+                clonedExitingElement.css({
+                  "position" : "absolute",
+                  "marginTop" : -window_height + pageTopMargin,
+                });
 
-                  enteringElement.animate({opacity: 1, zIndex: 0}, 500, function() {
-                    exitingElement.css('position', 'relative');
-                    exitingElement.css('marginTop', exitingMarginTopBeforeCrossfade);
-                    exitingElement.css('opacity', 1);
-                    exitingElement.css('zIndex', 0);
+                enteringElement.after(clonedExitingElement);
 
-                    enteringElement.css('position', 'relative');
-                    enteringElement.css('opacity', 1);
-                    enteringElement.css('zIndex', 0);
-                    enteringElement.css('marginTop', enteringMarginTopBeforeCrossfade);
+                clonedExitingElement.stop().animate({opacity: 0}, 500, function(){
 
-                    firstElement.css('marginTop', newMarginTop);
-                  });
+                  clonedExitingElement.remove();
+                  isCrossfading = false;
+                });
               }
 
                // play videos in incoming element
@@ -256,5 +225,19 @@
       $(window).scroll(function() {
          sticky_section();
       });
+
+//move the first element of section 3 after the video plays
+      var video = $('#section3 video')[0];
+
+      video.addEventListener('ended', function () {
+
+      var firstElement = $('#section3').find(".fullscreen:nth-child(1)");
+      var window_height = $(window).height();
+      var pageSize = (window_height - pageTopMargin);
+      var newMarginTop = -pageSize * 3;
+
+      firstElement.animate({ marginTop:  newMarginTop}, 500);
+
+      }, false);
 
 })(jQuery); // Fully reference jQuery after this point.

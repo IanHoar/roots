@@ -22,7 +22,7 @@
     <div class="col-sm-2" id="dates">
       <ul>
         <li class="accent">Dates</li>
-        <li>Open MAY 15, 2015</li>
+        <li>Open MAY 13, 2015</li>
         <li>Through OCT 31, 2015</li>
       </ul>
       <a href="#" class="btn-default">Buy Tickets</a>

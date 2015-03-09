@@ -14,8 +14,8 @@
 			<div class="fullscreen fadeable delay">
 				<div class="content-a">
 					<div class="content-b">
-					    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/1B/1-B2-ELDORADO.png" class="os-animation" data-os-animation="fadeInUp" data-os-animation-delay="1s"><br />
-					    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/1B/1-B2-text.png" class="os-animation" data-os-animation="fadeInUp" data-os-animation-delay="1.5s">
+					    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/1B/1-B2-ELDORADO.png" class="os-animation" data-os-animation="fadeInUp"><br />
+					    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/1B/1-B2-text.png" class="os-animation" data-os-animation="fadeInUp" data-os-animation-delay="0.5s">
 			    	</div>
 				</div>
 			</div>

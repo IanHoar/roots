@@ -16,10 +16,10 @@
 	<div class='row stackable-section' id="section3">
 		<?php get_template_part('templates/Section3/subsection-a'); ?>
 	</div>
-	<div class='row stackable-section' id="section4a">
+	<div class='row stackable-section invert' id="section4a">
 		<?php get_template_part('templates/Section4a/subsection-a'); ?>
 	</div>
-	<div class='row stackable-section' id="section4b">
+	<div class='row stackable-section slide_right' id="section4b">
 		<?php get_template_part('templates/Section4b/subsection-a'); ?>
 	</div>
 	<div class='row stackable-section' id="section4c">
