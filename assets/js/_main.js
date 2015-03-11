@@ -72,6 +72,46 @@
       $(window).focus(backgroundResize);
       backgroundResize();
 
+      /* set parallax background-position */
+      function parallaxPosition(e){
+          var heightWindow = $(window).height();
+          var topWindow = $(window).scrollTop();
+          var bottomWindow = topWindow + heightWindow;
+          var currentWindow = (topWindow + bottomWindow) / 2;
+          $(".parallax").each(function(i){
+              var path = $(this);
+              var height = path.height();
+              var top = path.offset().top;
+              var bottom = top + height;
+              // only when in range
+              if(bottomWindow > top && topWindow < bottom){
+                  var imgW = path.data("resized-imgW");
+                  var imgH = path.data("resized-imgH");
+                  // min when image touch top of window
+                  var min = 0;
+                  // max when image touch bottom of window
+                  var max = - imgH + heightWindow;
+                  // overflow changes parallax
+                  var overflowH = height < heightWindow ? imgH - height : imgH - heightWindow; // fix height on overflow
+                  top = top - overflowH;
+                  bottom = bottom + overflowH;
+                  // value with linear interpolation
+                  var value = min + (max - min) * (currentWindow - top) / (bottom - top);
+                  // set background-position
+                  var orizontalPosition = path.attr("data-oriz-pos");
+                  orizontalPosition = orizontalPosition ? orizontalPosition : "50%";
+                  $(this).css("background-position", orizontalPosition + " " + value + "px");
+              }
+          });
+      }
+      if(!$("html").hasClass("touch")){
+          $(window).resize(parallaxPosition);
+          //$(window).focus(parallaxPosition);
+          $(window).scroll(parallaxPosition);
+          parallaxPosition();
+      }
+
+
 //Background: cover for video
       $('.covervid-video').each(function(){
         $(this).coverVid(2200, 1100);
@@ -113,7 +153,9 @@
               $(this).removeClass();
               $(this).addClass("sub-section step-" + step);
               $(".active_section").removeClass('active_section');
+              $(".active_subsection").removeClass('active_subsection');
               $(this).parent().addClass("active_section");
+              $(this).addClass("active_subsection");
 
               // add active class to fade in entering elements
               var exitingElement = $(this).find(".active");
@@ -184,6 +226,7 @@
 
                 clonedExitingElement.css({
                   "position" : "absolute",
+                  "z-index" : 2,
                   "marginTop" : -window_height + pageTopMargin,
                 });
 
@@ -219,22 +262,51 @@
           }
         });
       };
+
+      var footer_check = function(){
+        var height = $(window).height();
+        var scrollTop = $(window).scrollTop();
+        var obj = $("footer");
+        var pos = obj.position();
+        
+        if (height + scrollTop > pos.top) {
+
+          var margin = (pos.top - (height + scrollTop));
+           $("#section5b .covervid-wrapper").css({
+            "marginTop": margin + pageTopMargin,
+           });
+          $("#section5b img").css({
+            "marginTop": margin,
+           });
+
+        }
+        else {
+          $("#section5b .covervid-wrapper").css({
+            "marginTop": pageTopMargin,
+           });
+           $("#section5b img").css({
+            "marginTop": 0,
+           });
+        }
+      };
       
       sticky_section();
+      footer_check();
       
       $(window).scroll(function() {
          sticky_section();
+         footer_check();
       });
 
 //move the first element of section 3 after the video plays
-      var video = $('#section3 video')[0];
+      var video = $('#section3b video')[0];
 
       video.addEventListener('ended', function () {
 
-      var firstElement = $('#section3').find(".fullscreen:nth-child(1)");
+      var firstElement = $('#section3b').find(".fullscreen:nth-child(1)");
       var window_height = $(window).height();
       var pageSize = (window_height - pageTopMargin);
-      var newMarginTop = -pageSize * 3;
+      var newMarginTop = -pageSize * 2;
 
       firstElement.animate({ marginTop:  newMarginTop}, 500);
 

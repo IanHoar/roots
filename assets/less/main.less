@@ -26,6 +26,10 @@ body {
 	background-color: black;
 }
 
+main.main {
+	overflow: hidden;
+}
+
 .navbar {
 	margin-bottom: 0px;
 }
@@ -182,6 +186,11 @@ header.banner {
 footer.content-info {
 
 	overflow: hidden;
+
+	& > div {
+		z-index: 99;
+		position: relative;
+	}
 
 	.container-fluid {
 		background:#232020;
@@ -353,7 +362,12 @@ section.sub-section {
 	}
 
 	.fullscreen.active{
-		opacity: 1
+		opacity: 1;
+		z-index: 1;
+	}
+
+	&.active_subsection {
+		z-index: 1;
 	}
 }
 
@@ -389,7 +403,7 @@ section.sub-section {
 }
 
 .coin-text {
-	margin-top: -130px;
+	margin-top: -45px;
 }
 
 #scroll-down {
@@ -552,6 +566,19 @@ section.sub-section {
 }
 
 #section3 {
+	section.sub-section {
+		height: 1200px;
+	}
+}
+
+#section3-interstitial {
+	div {
+		height: 300px;
+		width: 100%;
+	}
+}
+
+#section3b {
 
 	section.sub-section {
 		height: 8000px;
@@ -632,10 +659,15 @@ section.sub-section {
 		    rgba(0,0,0,1.0) 100%
 		 );
 	}
+
+	#interstitial_5a{
+		height:600px;
+		background: black;
+	}
 }
 
 #section5b {
-	height: 2000px;
+	height: 3000px;
 }
 
 #section-1C {
@@ -664,7 +696,7 @@ html,body {
     height:100%;
 }
 
-.fullscreen:not(.gold-circle) {
+.fullscreen:not(.gold-circle):not(.parallax) {
 	background-size: cover !important;
 	background-position: center!important;
 }

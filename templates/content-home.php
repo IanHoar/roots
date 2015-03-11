@@ -16,6 +16,12 @@
 	<div class='row stackable-section' id="section3">
 		<?php get_template_part('templates/Section3/subsection-a'); ?>
 	</div>
+	<div class='row stackable-section' id="section3-interstitial">
+		<?php get_template_part('templates/section3interstitial/subsection-a'); ?>
+	</div>
+	<div class='row stackable-section' id="section3b">
+		<?php get_template_part('templates/Section3b/subsection-a'); ?>
+	</div>
 	<div class='row stackable-section invert' id="section4a">
 		<?php get_template_part('templates/Section4a/subsection-a'); ?>
 	</div>
