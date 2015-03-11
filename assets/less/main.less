@@ -57,6 +57,7 @@ header.banner {
 		background-size: contain;
 		text-indent: -9999px;
 		width: 345px;
+		max-width: 100%;
 		height: @header-height;
 	}
 
@@ -66,9 +67,10 @@ header.banner {
 
 	#menu-primary-navigation {
 
+	  margin-top: 10px;
 		li {
 			float: left;
-			clear: both;
+			width: 50%;
 
 			a {
 				padding-top: 0px;
@@ -76,9 +78,9 @@ header.banner {
 				color: white;
 				font-weight: 300;
 				text-transform: uppercase;
-				font-size: 10px;
+				font-size: 12px;
 				letter-spacing: 1.5px;
-				line-height: 15px;
+				line-height: 20px;
 			}
 		}
 
@@ -96,7 +98,7 @@ header.banner {
 
 	#dates {
 
-		margin-top: 15px;
+		margin-top: 20px;
 
 		ul {
 			list-style: none;
@@ -106,7 +108,7 @@ header.banner {
 			li {
 				color: white;
 				font-weight: 300;
-				font-size: 10px;
+				font-size: 12px;
 				letter-spacing: 1.5px;
 				text-transform: uppercase;
 				line-height: 15px;
@@ -403,7 +405,7 @@ section.sub-section {
 }
 
 .coin-text {
-	margin-top: -45px;
+	margin-top: -30px;
 }
 
 #scroll-down {
@@ -727,4 +729,100 @@ html,body {
     position:relative;
 	vertical-align:middle;
 	text-align:center;
+}
+
+@media (max-width: @screen-sm-min) {
+
+	#content-desktop {
+		overflow: hidden;
+	}
+
+	.covervid-wrapper {
+		display: none!important;
+	}
+
+	img {
+		display: block!important;
+		max-width: 90%!important;
+		margin: 60px auto!important;
+	}
+
+	section.sub-section {
+		height: 100%!important;
+		background-size: cover;
+	}
+
+	.gold-circle {
+		background-size: contain;
+	}
+
+	.wrap { 
+		padding-top: 0px;
+	}
+
+	.main {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	header.banner {
+		position: relative;
+
+		.container-fluid {
+			padding-left: 0px;
+			padding-right: 0px;
+		}
+	}
+
+	.fifty {
+		width: 50%!important;
+		float: left;
+	}
+	.fifty:nth-child(2) {
+		width: 50%!important;
+		float: left;
+	}
+
+	.navbar-header {
+		float: left;
+		width:40%!important;
+
+		.navbar-brand {
+			margin-top: 10px;
+			width: 100%!important;
+		    height: 88px!important;
+		}
+	}
+
+	#section-nav {
+		display: none;
+	}
+
+	.navbar-toggle {
+		display: none;
+	}
+
+	#section-nav {
+		padding: 0!important;
+	}
+
+	#dates {
+		width: 40%;
+		float: left;
+
+		ul li {
+			font-size: 8px!important;
+			line-height: 12px!important;
+		}
+	}
+
+	#rbcm-logo {
+		width: 20%;
+		
+		a {
+			width: 100%!important;
+			height: 98px!important;
+			right: 0!important;
+		}
+	}
 }

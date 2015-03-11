@@ -1,14 +1,8 @@
-<?php the_content(); ?>
-
-
-	<?php $loop = new WP_Query( array( 'post_type' => 'sub-section', 
-									   'posts_per_page' => 100,
-									   'orderby' => 'menu_order title',
-									   'order'   => 'ASC', ) ); ?>
+<div class="hidden-xs" id="desktop_content">	
 	<div class='row stackable-section' id="section1">
 		<?php get_template_part('templates/Section1/subsection-a'); ?>
 		<?php get_template_part('templates/Section1/subsection-b'); ?>
-   	    <?php get_template_part('templates/Section1/subsection-c'); ?>
+		    <?php get_template_part('templates/Section1/subsection-c'); ?>
 	</div>
 	<div class='row stackable-section' id="section2">
 		<?php get_template_part('templates/Section2/subsection-a'); ?>
@@ -38,5 +32,11 @@
 		<?php get_template_part('templates/Section5/subsection-a'); ?>
 		<?php get_template_part('templates/Section5/subsection-b'); ?>
 	</div>
-
-<?php wp_link_pages(array('before' => '<nav class="pagination">', 'after' => '</nav>')); ?>
+</div>
+<div class="visible-xs" id="mobile_content">
+		<?php get_template_part('templates/Section1/subsection-a-mobile'); ?>
+		<?php get_template_part('templates/Section1/subsection-b-mobile'); ?>
+	    <?php get_template_part('templates/Section1/subsection-c-mobile'); ?>
+		<?php get_template_part('templates/Section2/subsection-a-mobile'); ?>
+	</div>
+</div>

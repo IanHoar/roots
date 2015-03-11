@@ -1,5 +1,15 @@
 (function($) {
 
+    var isMobile = false;
+
+    var checkIfMobile = function() {
+
+        isMobile = $(window).width() < 768;
+    };
+
+    checkIfMobile();
+    $(window).resize(checkIfMobile);
+
     var pageTopMargin = 105;
     $("html, body").animate({ scrollTop: pageTopMargin }, 0);
 
@@ -113,9 +123,12 @@
 
 
 //Background: cover for video
-      $('.covervid-video').each(function(){
-        $(this).coverVid(2200, 1100);
-      });
+      if (isMobile === false)
+      {
+        $('.covervid-video').each(function(){
+          $(this).coverVid(2200, 1100);
+        });
+      }
 
 //Scrollspy for menu highlighting
       $('body').scrollspy({ 
@@ -290,26 +303,36 @@
         }
       };
       
-      sticky_section();
-      footer_check();
+      if (isMobile === false)
+      {
+        sticky_section();
+        footer_check();
+      }
       
       $(window).scroll(function() {
-         sticky_section();
-         footer_check();
+        if (isMobile === false)
+        {
+          sticky_section();
+          footer_check();
+        }
       });
 
 //move the first element of section 3 after the video plays
-      var video = $('#section3b video')[0];
 
-      video.addEventListener('ended', function () {
+      if (isMobile === false)
+      {
+        var video = $('#section3b video')[0];
 
-      var firstElement = $('#section3b').find(".fullscreen:nth-child(1)");
-      var window_height = $(window).height();
-      var pageSize = (window_height - pageTopMargin);
-      var newMarginTop = -pageSize * 2;
+        video.addEventListener('ended', function () {
 
-      firstElement.animate({ marginTop:  newMarginTop}, 500);
+        var firstElement = $('#section3b').find(".fullscreen:nth-child(1)");
+        var window_height = $(window).height();
+        var pageSize = (window_height - pageTopMargin);
+        var newMarginTop = -pageSize * 2;
 
-      }, false);
+        firstElement.animate({ marginTop:  newMarginTop}, 500);
+
+        }, false);
+      }
 
 })(jQuery); // Fully reference jQuery after this point.
