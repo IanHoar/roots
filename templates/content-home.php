@@ -11,7 +11,7 @@
 		<?php get_template_part('templates/Section3/subsection-a'); ?>
 	</div>
 	<div class='row stackable-section' id="section3-interstitial">
-		<?php get_template_part('templates/section3interstitial/subsection-a'); ?>
+		<?php get_template_part('templates/Section3interstitial/subsection-a'); ?>
 	</div>
 	<div class='row stackable-section' id="section3b">
 		<?php get_template_part('templates/Section3b/subsection-a'); ?>
@@ -26,7 +26,10 @@
 		<?php get_template_part('templates/Section4c/subsection-a'); ?>
 	</div>
 	<div class='row stackable-section' id="section4e">
-		<?php get_template_part('templates/Section4e/subsection-a'); ?>
+		<div class="fade-out-overlay">
+			<?php get_template_part('templates/Section4e/subsection-a'); ?>
+			<?php get_template_part('templates/Section4f/subsection-a'); ?>
+		</div>
 	</div>
 	<div class='row stackable-section' id="section5">
 		<?php get_template_part('templates/Section5/subsection-a'); ?>

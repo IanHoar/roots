@@ -3,10 +3,10 @@
 		<div class="content-a">
 			<div class="content-b">
 			    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/1A/1-A1-logo-english.png" style="margin-top:-63px;">
-				<a href="#">
+				<a href="http://royalbcmuseum.bc.ca/gold/#googtrans(en%7Cfr)">
 			    	<img src="<?php  bloginfo('template_directory'); ?>/assets/img/1A/1-A1-logo-french.png" id="logo-french" class="fifty">
 			    </a>			    
-			    <a href="#">
+			    <a href="http://royalbcmuseum.bc.ca/gold/#googtrans(en%7Czh-CN)">
 				    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/1A/1-A1-logo-chinese.png" id="logo-chinese" class="fifty"><br />
 			    </a>
 			</div>

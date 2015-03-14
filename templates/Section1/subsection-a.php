@@ -4,11 +4,11 @@
 		<div class="fullscreen fadeable">
 			<div class="content-a">
 				<div class="content-b">
-				    <a href="#">
+				    <a href="http://royalbcmuseum.bc.ca/gold/#googtrans(en%7Cfr)">
 				    	<img src="<?php  bloginfo('template_directory'); ?>/assets/img/1A/1-A1-logo-french.png" id="logo-french" class="os-animation" data-os-animation="fadeInLeft" data-os-animation-delay="0.5s">
 				    </a>
 				    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/1A/1-A1-logo-english.png" style="margin-top:-63px;">
-				    <a href="#">
+				    <a href="http://royalbcmuseum.bc.ca/gold/#googtrans(en%7Czh-CN)">
 					    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/1A/1-A1-logo-chinese.png" id="logo-chinese" class="os-animation" data-os-animation="fadeInRight" data-os-animation-delay="1.0s"><br />
 				    </a>
 				     <div class="absolute-outer" style="bottom: 0;">
@@ -21,7 +21,7 @@
 		<div class="fullscreen fadeable" id="scroll-down-target">
 			<div class="content-a gold-circle">
 		        <div class="content-b">
-				    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/1A/1-A3-text.png">
+				    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/1A/1-A3-text.png" style="margin-top: 150px;">
 				    <br />
 				    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/1A/1-A4-goldbar.png" class="os-animation" data-os-animation="fadeInUp" style="margin-top:30px;">
 				</div>

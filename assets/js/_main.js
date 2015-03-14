@@ -10,7 +10,7 @@
     checkIfMobile();
     $(window).resize(checkIfMobile);
 
-    var pageTopMargin = 105;
+    var pageTopMargin = 100;
     $("html, body").animate({ scrollTop: pageTopMargin }, 0);
 
 //scroll down button
@@ -190,44 +190,69 @@
               var newMarginTop = (shouldInvert) ? - pageSize * (numberOfChildren - 1 - step) : -pageSize * step;
               var propertyToAnimate = shouldScrollBg ? "marginLeft" : "marginTop";
 
-              firstElement.delay(delay).stop().animate({ marginTop:  newMarginTop}, animTime, function(){  
-                 // animate elements on incoming active section
-                  var animatableElements = enteringElement.find(".os-animation");
+              if (shouldScrollBg === false)
+              {
+                firstElement.delay(delay).stop().animate({ marginTop:  newMarginTop}, animTime, function(){  
+                   // animate elements on incoming active section
+                    var animatableElements = enteringElement.find(".os-animation");
 
-                  animatableElements.each(function(){
-                    var osElement        = $(this);
-                    var osAnimationClass = osElement.attr('data-os-animation');
-                    var osAnimationDelay = osElement.attr('data-os-animation-delay');
-                  
-                    osElement.css({
-                      '-webkit-animation-delay':  osAnimationDelay,
-                      '-moz-animation-delay':     osAnimationDelay,
-                      'animation-delay':          osAnimationDelay
-                    });
-                      
-                    osElement.addClass('animated').addClass(osAnimationClass);
-                  });
-
-                  if (exitingElement.hasClass("resettable"))
-                  {
-                    var resetableElements = exitingElement.find(".os-animation");
-
-                    resetableElements.each(function(){
+                    animatableElements.each(function(){
                       var osElement        = $(this);
                       var osAnimationClass = osElement.attr('data-os-animation');
+                      var osAnimationDelay = osElement.attr('data-os-animation-delay');
+                    
+                      osElement.css({
+                        '-webkit-animation-delay':  osAnimationDelay,
+                        '-moz-animation-delay':     osAnimationDelay,
+                        'animation-delay':          osAnimationDelay
+                      });
                         
-                      osElement.removeClass('animated').removeClass(osAnimationClass);
+                      osElement.addClass('animated').addClass(osAnimationClass);
                     });
-                  }
-              });
 
-              if (shouldScrollBg)
+                    if (exitingElement.hasClass("resettable"))
+                    {
+                      var resetableElements = exitingElement.find(".os-animation");
+
+                      resetableElements.each(function(){
+                        var osElement        = $(this);
+                        var osAnimationClass = osElement.attr('data-os-animation');
+                          
+                        osElement.removeClass('animated').removeClass(osAnimationClass);
+                      });
+                    }
+                });
+              }
+              else
               {
                 var bgContainer = $(this).find(".sticky_section");
                 var percentageToMove = (100/numberOfChildren-1) * step;
                 bgContainer.animate({
                   'background-position-x': percentageToMove + '%',
                 }, 2000);
+
+                var content = bgContainer.find(".animate_content");
+                var animate_offset = content.attr("data-img-width");
+                var window_width = $(window).width();
+                var page_size = (animate_offset/3);
+                percentageToMove = step * 50;
+
+                console.log(page_size / (page_size - window_width /2));
+
+                if (percentageToMove === 0)
+                {
+                  percentageToMove += (animate_offset/2) / ((page_size - window_width) /2);
+                } 
+                else if (percentageToMove === 100)
+                {
+                  percentageToMove -= (animate_offset/2) / ((page_size - window_width) /2);
+                }
+
+                console.log(animate_offset);
+                content.animate({
+                  'background-position-x': percentageToMove + '%',
+                }, 2000);
+
               }
 
               enteringElement.addClass('active');
@@ -316,23 +341,5 @@
           footer_check();
         }
       });
-
-//move the first element of section 3 after the video plays
-
-      if (isMobile === false)
-      {
-        var video = $('#section3b video')[0];
-
-        video.addEventListener('ended', function () {
-
-        var firstElement = $('#section3b').find(".fullscreen:nth-child(1)");
-        var window_height = $(window).height();
-        var pageSize = (window_height - pageTopMargin);
-        var newMarginTop = -pageSize * 2;
-
-        firstElement.animate({ marginTop:  newMarginTop}, 500);
-
-        }, false);
-      }
 
 })(jQuery); // Fully reference jQuery after this point.

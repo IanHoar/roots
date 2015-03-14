@@ -1,6 +1,6 @@
 <footer class="content-info" role="contentinfo">
   <div class="container-fluid">
-   <div class="col-sm-4" id="dates-footer">
+   <div class="col-sm-3" id="dates-footer">
       <ul>
         <li class="accent">Dates</li>
         <li>Open MAY 15, 2015</li>
@@ -11,19 +11,19 @@
       <a href="http://royalbcmuseum.bc.ca/">COPYRIGHT 2015, RBCM</a>
     </div>
     <div class="col-sm-3" id="gold-rush-footer">
-  	    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/goldrush-logo.png">
+        <h4>IN COLLABORATION WITH</h4>
+  	    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/banco.png">
+        <img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/canadian-museum.png">
     </div>
-    <div class="col-sm-2" id="allure">
-	    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/allure-of-gold.png">
-	    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/banco-de-la.png">
-    </div>
-    <div class="col-sm-2" id="tourism">
-	    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/canadian-museum.png">
+    <div class="col-sm-6" id="allure">
+      <h4>SPONSORED BY</h4>
+	    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/rbcm-foundation.png">
+	    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/science.png">
+	    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/arthur.png">
 	    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/canadian-mint.png">
-	    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/tourism-vic.png">
-    </div>
-    <div class="col-sm-1" id="rbcm-logo-footer">
-        <a href="<?php echo esc_url(home_url('/')); ?>"></a>
+	    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/francis.png">
+      <img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/goldcorp.png">
+      <img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/tourism.png">
     </div>
   </div>
 </footer>

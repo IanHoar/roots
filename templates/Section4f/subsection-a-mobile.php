@@ -46,13 +46,19 @@
 				</div>
 			</div>
 		</div>
-		<div class="fullscreen no-animation background" style="background-image:url('<?php  bloginfo('template_directory'); ?>/assets/img/4E/4F-background1.jpg');" data-img-width="2200" data-img-height="1100" data-diff="100">
+		<div class="fullscreen crossfade no-animation background" style="background-image:url('<?php  bloginfo('template_directory'); ?>/assets/img/4E/4F-background1.jpg');" data-img-width="2200" data-img-height="1100" data-diff="100">
 			<div class="content-a">
 				<div class="content-b">
-				    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/4E/4F-title.png"> 
-				    <br />
-				    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/4E/4F-copy.png">   
+				    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/4E/4F-content.png">  
                     <a class="info-button" data-toggle="popover" data-content="Placer gold became scarce on the Fraser and in the Cariboo by the mid 1860s. To delay the inevitable the colonial government built roads through the interior, plunging itself into debt. Prospectors searched creek after creek, exploring almost every part of British Columbia. But El Dorado was an ever-receding dream.  The gold-seekers moved on – some to other rushes, some back home. But many miners stayed to log, fish, farm or ranch, helping the colony move toward confederation.  British Columbia joined Canada in 1871. The gold rush created BC and its resource-based economy. But the rush’s lasting legacy brought even greater change."></a> 	
+				</div>
+			</div>
+		</div>
+		<div class="fullscreen crossfade no-animation background" style="background-image:url('<?php  bloginfo('template_directory'); ?>/assets/img/4E/4F-background2.jpg');" data-img-width="2200" data-img-height="1100" data-diff="100">
+			<div class="content-a">
+				<div class="content-b">
+				    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/4E/4F-content.png"> 
+                    <a class="info-button" data-toggle="popover" data-content="For First Peoples, the land holds stories. The rushes changed the land: erasing names, landmarks and sacred places. They also changed people, decimating First Nations populations with smallpox and flu and forcing those who survived onto reserves. Road-building continued after the rush, creating new routes but destroying old trails. The railway arrived. El Dorado’s golden thread had laid a grid over the land. Victoria became the province’s capital. Chinese, Scottish, Mexican and other ethnicities settled throughout BC."></a> 	  	
 				</div>
 			</div>
 		</div>
