@@ -8,7 +8,6 @@
     };
 
     checkIfMobile();
-    $(window).resize(checkIfMobile);
 
     var pageTopMargin = 100;
     $("html, body").animate({ scrollTop: pageTopMargin }, 0);
@@ -35,7 +34,7 @@
               }
           });
       }
-      $(window).resize(fullscreenFix);
+
 
       fullscreenFix();
 
@@ -78,7 +77,6 @@
               // path.css("background-size", imgW + "px " + imgH + "px");
           });
       }
-      $(window).resize(backgroundResize);
       $(window).focus(backgroundResize);
       backgroundResize();
 
@@ -115,8 +113,6 @@
           });
       }
       if(!$("html").hasClass("touch")){
-          $(window).resize(parallaxPosition);
-          //$(window).focus(parallaxPosition);
           $(window).scroll(parallaxPosition);
           parallaxPosition();
       }
@@ -140,6 +136,7 @@
       var sticky_section_offset_top = $('.sticky_section').offset().top;
       var topMargin = parseInt($(".wrap").css("paddingTop"));
       var isCrossfading = false;
+      var firstPass = true;
       
       var sticky_section = function(){
 
@@ -183,7 +180,7 @@
               var firstElement = $(this).find(".fullscreen:nth-child(1)");
 
               var delay = (shouldDelay ? 750 : 0);
-              var animTime = (shouldNotAnimate || shouldCrossfade ? 0 : 1000);
+              var animTime = (shouldNotAnimate || shouldCrossfade || firstPass ? 0 : 1000);
               var shouldInvert = $(this).parent().hasClass("invert");
               var shouldScrollBg = $(this).parent().hasClass("slide_right");
               var pageSize = (window_height - pageTopMargin);
@@ -332,6 +329,7 @@
       {
         sticky_section();
         footer_check();
+        firstPass = false;
       }
       
       $(window).scroll(function() {
@@ -341,5 +339,16 @@
           footer_check();
         }
       });
+
+      $(window).resize(function(){
+
+          backgroundResize();
+          checkIfMobile();
+          fullscreenFix();
+          parallaxPosition();
+          sticky_section();
+          footer_check();
+      });
+        
 
 })(jQuery); // Fully reference jQuery after this point.

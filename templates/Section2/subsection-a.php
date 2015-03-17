@@ -27,14 +27,13 @@
 			</div>
 		</div>
 		<div class="fullscreen fadeable">
-			<div class="content-a gold-circle">
-				<div class="content-b">
-				    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/2A/2B-title.png" class="os-animation center" data-os-animation="fadeInUp">
+			<div class="content-a gold-circle" style="margin-top:-250px;">
+				<div class="content-b" >
+				    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/2A/2C-title.png" class="os-animation" data-os-animation="fadeInUp" style="margin-top:380px;">
 				    <br />
-				    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/2A/2b-content.png" class="os-animation center" data-os-animation="fadeInUp" data-os-animation-delay="1.0s">
-			       <div style="bottom: -140px;" class="absolute-outer">
-				    	<img src="<?php  bloginfo('template_directory'); ?>/assets/img/2A/2b-artifact.png" class="os-animation absolute-inner" data-os-animation="fadeInUp" data-os-animation-delay="1.0s">
-				    </div>
+				    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/2A/2C-content.png" class="os-animation" data-os-animation="fadeInUp" data-os-animation-delay="1.0s">
+				    <br />
+			    	<img src="<?php  bloginfo('template_directory'); ?>/assets/img/2A/2b-artifact.png" class="os-animation" data-os-animation="fadeInUp" data-os-animation-delay="1.5s">
 			    </div>
 			</div>
 		</div>
