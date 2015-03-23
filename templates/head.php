@@ -7,6 +7,7 @@
 
   <link rel="icon" type="image/x-icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicon.png" />
   <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/assets/css/jquery.fullPage.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/assets/css/twentytwenty.css" />
 
   <script src="//use.typekit.net/nbl2qnn.js"></script>
   <script>try{Typekit.load();}catch(e){}</script>

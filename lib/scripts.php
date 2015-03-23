@@ -35,9 +35,11 @@ function roots_scripts() {
       'modernizr' => '/assets/js/vendor/modernizr.min.js',
       'jquery'    => '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js',
       'covervid'  => '/assets/js/plugins/jquery.covervid.min.js',
-      'fullpage'  => '/assets/js/plugins/jquery.fullPage.min.js',
+      'fullpage'  => '/assets/js/plugins/jquery.fullPage.js',
       'slimscroll'  => '/assets/js/plugins/jquery.slimscroll.min.js',
       'easings'  => '/assets/js/plugins/jquery.easings.min.js',
+      'move'  => '/assets/js/plugins/jquery.event.move.js',
+      'twenty'  => '/assets/js/plugins/jquery.twentytwenty.js',
     );
   }
 
@@ -65,6 +67,8 @@ function roots_scripts() {
   wp_enqueue_script('fullpage');
   wp_enqueue_script('slimscroll');
   wp_enqueue_script('easings');
+  wp_enqueue_script('move');
+  wp_enqueue_script('twenty');
 }
 add_action('wp_enqueue_scripts', 'roots_scripts', 100);
 

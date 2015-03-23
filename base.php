@@ -1,5 +1,6 @@
 <?php get_template_part('templates/head'); ?>
 <body <?php body_class(); ?> data-spy="scroll" data-target=".navbar-collapse">
+    <div class="loader"></div>
 
   <!--[if lt IE 8]>
     <div class="alert alert-warning">
@@ -23,6 +24,12 @@
   <?php get_template_part('templates/footer'); ?>
 
   <?php wp_footer(); ?>
-
+  <div id="section-5a-content">
+    <div style="bottom:50px;" class="absolute-outer">
+        <img src="<?php  bloginfo('template_directory'); ?>/assets/img/5/5A-title.png" class="absolute-inner">
+        <br />
+      <img src="<?php  bloginfo('template_directory'); ?>/assets/img/5/5A-copy.png" class="absolute-inner">
+    </div>
+  </div>
 </body>
 </html>

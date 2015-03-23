@@ -1,10 +1,10 @@
 <header class="banner navbar navbar-default navbar-static-top" role="banner">
   <div class="container-fluid">
     <div class="navbar-header col-sm-3">
-      <a class="navbar-brand" href="<?php echo esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a>
+      <a class="navbar-brand" href="http://royalbcmuseum.bc.ca/gold/"><?php bloginfo('name'); ?></a>
     </div>
 
-    <div class="col-sm-3" id="section-nav">
+    <div class="col-sm-6" id="section-nav">
       <nav class="collapse navbar-collapse" role="navigation">
         <?php
           if (has_nav_menu('primary_navigation')) :
@@ -13,15 +13,13 @@
         ?>
       </nav>
     </div>
-    <div class="col-sm-2 col-sm-offset-3" id="dates">
-      <ul>
-        <li class="accent">Dates</li>
-        <li>MAY 13 - OCT 31, 2015</li>
-      </ul>
+    <div class="col-sm-2" id="dates">
       <a href="#" class="btn-default">Buy Tickets</a>
+      <a href="#" class="btn-default">Events and Programs</a>
+      <span class="music">Music<div></div></span>
     </div>
     <div class="col-sm-1" id="rbcm-logo">
-        <a href="<?php echo esc_url(home_url('/')); ?>"></a>
+        <a href="http://royalbcmuseum.bc.ca"></a>
     </div>
   </div>
 </header>
