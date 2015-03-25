@@ -57,8 +57,9 @@ header.banner {
 		background-image: url(../img/menu/header-logo.png);
 		background-repeat: no-repeat;
 		background-size: contain;
+		background-position: center center;
 		text-indent: -9999px;
-		width: 345px;
+		width: 283px;
 		max-width: 100%;
 		height: @header-height;
 	}
@@ -225,16 +226,22 @@ footer.content-info {
 
 	overflow: hidden;
 	position: absolute;
-	bottom: -435px;
+	bottom: -600px;
 
-	& > div {
-		z-index: 99;
-		position: relative;
+	img {
+		float: left;
+		max-width: 100%;
+	}
+
+	.col-sm-6 {
+
+		img {
+			max-width: 50%;
+		}
 	}
 
 	.container-fluid {
 		background:#232020;
-		height: @footer-height;
 	}
 
 	#rbcm-logo-footer {
@@ -255,60 +262,28 @@ footer.content-info {
 	}
 
 	#tourism {
-		border-left: 1px solid rgba(255, 255, 255, 0.4);
+		border-right: 1px solid rgba(255, 255, 255, 0.4);
 		margin-top: 20px;
 		margin-bottom: 30px;
-		height: 385px;
-
-		img {
-			display: block;
-			margin: auto;
-
-			&:nth-child(2) {
-				margin-top: 30px;
-				margin-bottom: 30px;
-			}
-		}
 	}
 
 	#allure {
-		border-left: 1px solid rgba(255, 255, 255, 0.4);
+		border-right: 1px solid rgba(255, 255, 255, 0.4);
 		margin-top: 20px;
 		margin-bottom: 30px;
-		height: 385px;
-
-		img {
-			display: block;
-			margin: auto;
-			float: left;
-			max-width: 33%;
-		}
-
-		img:nth-child(5) {
-			margin-bottom: 87px;
-			clear: both;
-		}
+		padding-left: 30px;
 	}
 
 	#gold-rush-footer {
-		border-left: 1px solid rgba(255, 255, 255, 0.4);
+		border-right: 1px solid rgba(255, 255, 255, 0.4);
 		margin-top: 20px;
 		margin-bottom: 30px;
-		height: 385px;
-		
-		img {
-			display: block;
-			margin: auto;
-		}
-
-		img:nth-child(2) {
-			margin-bottom: 26px;
-		}
+		padding-left: 30px;
 	}
 
 	#dates-footer {
-
 		margin-top: 20px;
+		padding-left: 30px;
 
 		ul {
 			list-style: none;
@@ -323,6 +298,7 @@ footer.content-info {
 				letter-spacing: 1.5px;
 				text-transform: uppercase;
 				line-height: 15px;
+				margin-top: 4px;
 			}
 
 			li.accent {
@@ -366,10 +342,34 @@ footer.content-info {
 
 	h4 {
 		color: white;
-		font-size: 12px;
+		font-size: 14px;
 		margin-top: 2px;
 		display: block;
-		text-align: center;
+		margin-bottom: 25px;
+		clear: both;
+	}
+
+	.col-sm-12 a {
+		color: rgba(255, 255, 255, 0.5);
+		font-size: 10px;
+	}
+
+	 #tourism-victoria-logo {
+    	margin-bottom:25px;
+    }
+}
+
+@media (max-width: 888px) {
+
+	footer.content-info {
+		
+		#dates-footer ul li {
+			font-size: 9px;
+			letter-spacing: 1.5px;
+			line-height: 12px;
+			margin-top: 4px;
+
+		}
 	}
 }
 
@@ -397,12 +397,21 @@ footer.content-info {
 	background-repeat: no-repeat;
 }
 
+.gold-circle-artifact {
+	background-image: url(../img/2A/2c-background.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
 /********************* styles ********************/
 
-.overlap-above {
-	margin-top: 450px;
-	position: relative;
-	z-index: 2;
+.gold-pan {
+	// display: table !important;
+	// width: 100%;
+	// .pan {
+	// 	max-height: 50%;
+	// 	width: auto!important;
+	// }
 }
 
 .horizontal {
@@ -732,7 +741,7 @@ footer.content-info {
 	text-align: center;
 }
 
-.fp-section:not(.gold-circle):not(.gold-circle-2) {
+.fp-section:not(.gold-circle):not(.gold-circle-2):not(.gold-circle-artifact) {
 	background-size: cover;
 	background-position: center;
 }
@@ -747,25 +756,49 @@ footer.content-info {
     opacity: 1;
 }
 
-@media (max-width: @screen-sm-min) {
-
-	#content-desktop {
-		overflow: hidden;
+@media (width: 768px) {
+	#menu-primary-navigation {
+	  margin-top: 0px!important;
+	  margin-bottom: 10px;
 	}
 
-	.covervid-wrapper {
-		display: none!important;
+	header.banner #dates {
+	  margin-top: 20px;
 	}
 
-	img {
-		display: block!important;
-		max-width: 90%!important;
-		margin: 60px auto!important;
+	.music {
+		display: none;
 	}
+
+	header.banner #rbcm-logo a {
+		height: 120px;
+	}
+
+	#logo-french {
+		max-width: 20%;
+		margin-right: 0px!important;
+	}
+
+	#logo-chinese {
+		max-width: 20%;
+		margin-left: 0px!important;
+	}
+}
+
+@media (max-width: 767px) {
 
 	section.sub-section {
 		height: 100%!important;
 		background-size: cover;
+	}
+
+	img {
+		max-width: 90%;
+	}
+
+	.full-width {
+		width: 100%!important;
+		max-width: 100%;
 	}
 
 	.gold-circle, .gold-circle-2 {
@@ -777,21 +810,17 @@ footer.content-info {
 	}
 
 	header.banner {
-		position: relative;
+		position: absolute;
+		top: 0;
 
 		.container-fluid {
 			padding-left: 0px;
 			padding-right: 0px;
 		}
-	}
 
-	.fifty {
-		width: 50%!important;
-		float: left;
-	}
-	.fifty:nth-child(2) {
-		width: 50%!important;
-		float: left;
+		.music {
+			display: none;
+		}
 	}
 
 	.navbar-header {
@@ -818,7 +847,7 @@ footer.content-info {
 	}
 
 	#dates {
-		width: 40%;
+		width: 46%;
 		float: left;
 
 		ul li {
@@ -836,4 +865,69 @@ footer.content-info {
 			right: 0!important;
 		}
 	}
+
+	footer.content-info {
+		position: relative;
+		bottom: 0;
+
+	    .container-fluid {
+	    	height: 100%;
+
+	    	div {
+	    		border: 0!important;
+	    		height: auto!important;
+	    	}
+	    }
+
+	    img {
+
+	    	width: 40%;
+	    	text-align: center;
+	    	margin-bottom: 20px;
+
+	    	&:nth-child(2n +1)
+	    	{
+	    		margin-left: 10%;
+	    	}
+	    }
+
+	 	#dates-footer ul li {
+	 		text-align: center;
+	 	}
+
+	    h4 {
+	    	text-align: center;
+	    	margin-top: 15px;
+	    	margin-bottom: 15px;
+	    }
+
+	    .col-sm-6 {
+	    	img:nth-child(2n +1)
+	    	{
+	    		margin-left: 0%;
+	    	}
+
+	    	img:nth-child(2n)
+	    	{
+	    		margin-left: 10%;
+	    	}
+	    }
+
+	    #tourism-victoria-logo {
+	    	margin-bottom:25px;
+	    	margin-left: 30%;
+	    }
+	}
 }
+
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) 
+and (orientation : portrait) {
+
+	.fp-section {
+		padding-top: 100px;
+		padding-bottom: 100px;
+	}
+}
+

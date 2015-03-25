@@ -1,13 +1,15 @@
-<?php get_template_part('templates/Section1/video-a'); ?>
-<?php get_template_part('templates/Section1/video-b'); ?>
-<?php get_template_part('templates/Section1/video-c'); ?>
-<?php get_template_part('templates/Section3b/video-a'); ?>
-<?php get_template_part('templates/Section4a/video-a'); ?>
-<?php get_template_part('templates/Section5/video-a'); ?>
+<div class="hidden-xs">
+	<?php get_template_part('templates/video-a'); ?>
+	<?php get_template_part('templates/video-b'); ?>
+	<?php get_template_part('templates/video-c'); ?>
+	<?php get_template_part('templates/video-3b'); ?>
+	<?php get_template_part('templates/video-4a'); ?>
+	<?php get_template_part('templates/video-5b'); ?>
 
-<audio class="paused">
-  <source src="<?php  bloginfo('template_directory'); ?>/assets/audio/bg.mp3" type="audio/mpeg">
-</audio>
+	<audio>
+	  <source src="<?php  bloginfo('template_directory'); ?>/assets/audio/bg.mp3" type="audio/mpeg">
+	</audio>
+</div>
 
 <div class="hidden-xs fullpage-wrapper" id="fullpage">	
 	<div class="section" id="section1">
@@ -93,14 +95,11 @@
 	    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/2A/2b-copy1.png" class="os-animation" data-os-animation="fadeInUp" data-os-animation-delay="1.0s">
         <a class="info-button" data-toggle="popover" data-content="Two continents, similar stories. The Republic of Colombia in South America and the province of British Columbia in North America were both named after European explorer Christopher Columbus. Both lands were also rich with gold. Inspired by colonial stories of El Dorado, gold-seekers arrived from around the world. Gold shone for the European eye – it was a chance for material wealth. The gold seekers in both Colombia and British Columbia forever changed the lives of indigenous peoples and the environment forever."></a>
 	</div>
-	<div class="section gold-circle section-2">
+	<div class="section gold-circle-artifact section-2">
 		<img src="<?php  bloginfo('template_directory'); ?>/assets/img/2A/2C-title.png" class="os-animation" data-os-animation="fadeInUp">
 	    <br />
 	    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/2A/2C-content.png" class="os-animation" data-os-animation="fadeInUp" data-os-animation-delay="1.0s">
 	    <br />
-	    <div style="bottom:8%;" class="absolute-outer">
-			<img src="<?php  bloginfo('template_directory'); ?>/assets/img/2A/2b-artifact.png" class="os-animation artifact absolute-inner" data-os-animation="fadeInUp" data-os-animation-delay="1.5s"> 
-	    </div>
 	</div>
 
 	<!-- 3 -->
@@ -119,15 +118,18 @@
 	<div class="section">
         <a class="info-button" data-toggle="popover" data-content="The myths of El Dorado and Gold Mountain resurfaced with the discovery of Fraser River gold in 1858. The world’s gaze turned to the place that would become British Columbia. Over 30,000 people poured in from around the globe. Life in the territory changed forever, for First Nations and for the natural environment. A fur-trade society, with deep partnerships between First Nations and Europeans, transformed under waves of immigrants and rampant adventurers. Both excitement and violence marked the era. The territory became the colony of British Columbia before the year was up."></a>
 	</div>	 
-	<div class="section crossfade" style="background-image:url('<?php  bloginfo('template_directory'); ?>/assets/img/3A/3E-background.jpg');">
-		<img src="<?php  bloginfo('template_directory'); ?>/assets/img/3A/3E-goldpan.png" class="os-animation start-visible" data-os-animation="shake" style="position:absolute; top:120px;">
-	    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/3A/3E-title.png" class="overlap-above os-animation" data-os-animation="fadeIn"><br />
-	    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/3A/3E-copy.png" class="os-animation" data-os-animation="fadeInUp" data-os-animation-delay="1s"><br />
+	<div class="section crossfade gold-pan" style="background-image:url('<?php  bloginfo('template_directory'); ?>/assets/img/3A/3E-background.jpg');">
+		<img src="<?php  bloginfo('template_directory'); ?>/assets/img/3A/3E-goldpan.png" class="os-animation start-visible pan" data-os-animation="shake">
+ 		<br />
+	    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/3A/3E-title.png" class="os-animatio" data-os-animation="fadeIn">
+ 		<br />
+	    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/3A/3E-copy.png" class="os-animatio" data-os-animation="fadeInUp" data-os-animation-delay="1s">
     </div>	
-	<div class="section crossfade" style="background-image:url('<?php  bloginfo('template_directory'); ?>/assets/img/3A/3E2-background.jpg');">
-		<img src="<?php  bloginfo('template_directory'); ?>/assets/img/3A/3E-goldpan.png" class="start-visible" style="position:absolute; top:120px;">
-   		<img src="<?php  bloginfo('template_directory'); ?>/assets/img/3A/3E-goldpan2.png" class="os-animation" data-os-animation="fadeIn" style="position:absolute; top:120px;">
-	    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/3A/3E-title.png" class="overlap-above"><br />
+	<div class="section crossfade gold-pan" style="background-image:url('<?php  bloginfo('template_directory'); ?>/assets/img/3A/3E2-background.jpg');">
+   		<img src="<?php  bloginfo('template_directory'); ?>/assets/img/3A/3E-goldpan2.png" class="pan">
+ 		<br />
+	    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/3A/3E-title.png" class="overlap-above">
+	    <br />
 	    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/3A/3E-copy.png">
 	</div>	
 
@@ -220,11 +222,78 @@
 	<div class="section section5 remove">
 	    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/5/5a-3-car2.png" class="os-animation" data-os-animation="fadeIn">
 	</div>
-	<div class="section section5">
+	<div class="section">
 	    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/5/5b-content.png" class="os-animation" data-os-animation="fadeInUp" data-os-animation-delay="12.5s">
 	    <a href="#" class="btn-default btn-main os-animation" data-os-animation="fadeInUp" data-os-animation-delay="12.5s">Buy Tickets</a>
 	</div>	
 	<div class="section">
 		<!-- footer buffer -->
 	</div>	
+</div>
+<div class="visible-xs">
+	<div class="section" style="background-image:url('<?php  bloginfo('template_directory'); ?>/assets/img/mobile/mountains.jpg');">
+	    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/1A/1-A1-logo-english.png" style="width:60%;">
+	    <br />
+	    <a href="#" class="btn-default btn-main" style="margin-top:30px;">Buy Tickets</a>
+	</div>
+	<div class="section" style="background-image:url('<?php  bloginfo('template_directory'); ?>/assets/img/mobile/ship.jpg');">
+	    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/1B/1B1-title1.png">
+		<br />
+		<img src="<?php  bloginfo('template_directory'); ?>/assets/img/1B/1-B1-tagline.png">
+		<br />
+		<img src="<?php  bloginfo('template_directory'); ?>/assets/img/1B/1-B3-goldnugget.png" style="margin-top:80px;">		
+	</div>
+	<div class="section" style="background-image:url('<?php  bloginfo('template_directory'); ?>/assets/img/mobile/glitter.jpg'); padding-bottom:0;" >
+        <img src="<?php  bloginfo('template_directory'); ?>/assets/img/1C/1C-coin1.png">
+        <br />
+        <img src="<?php  bloginfo('template_directory'); ?>/assets/img/1C/1C-closingtext.png">
+        <br />
+	    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/2A/2a-logo.png" style="margin-top:200px;">
+	    <br />
+	    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/mobile/artifacts.png" class="full-width">
+	</div>
+	<div class="section">
+	    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/mobile/missing.jpg" class="full-width">
+	</div>
+		<div class="section" style="background-image:url('<?php  bloginfo('template_directory'); ?>/assets/img/3A/3A-background.jpg');">
+		<img src="<?php  bloginfo('template_directory'); ?>/assets/img/3A/3A-character.png">
+	   	<br />
+	    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/3A/3A-title.png">
+	    <br />
+	    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/3A/3A-copy.png">
+	</div>
+	<div class="section" style="background-image:url('<?php  bloginfo('template_directory'); ?>/assets/img/3A/3E2-background.jpg');">
+   		<img src="<?php  bloginfo('template_directory'); ?>/assets/img/3A/3E-goldpan2.png" class="pan">
+ 		<br />
+	    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/3A/3E-title.png" class="overlap-above">
+	    <br />
+	    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/3A/3E-copy.png">
+	</div>	
+	<div class="section" style="background-image:url('<?php  bloginfo('template_directory'); ?>/assets/img/mobile/bridge.jpg');">
+	    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/mobile/somesay.png">
+	</div>
+	<div class="section" style="background-image:url('<?php  bloginfo('template_directory'); ?>/assets/img/4C/4C1-background.jpg');">
+	    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/4C/4C-title.png">  
+	    <br />
+	    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/4C/4C-copy.png">   	 	
+	</div>	
+	<div class="section" style="background-image:url('<?php  bloginfo('template_directory'); ?>/assets/img/4E/4E1-background-mobile.jpg');">
+	    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/mobile/apathnottaken.png">    	 	
+	</div>	
+	<div class="section" style="background-image:url('<?php  bloginfo('template_directory'); ?>/assets/img/4E/4E2-background-mobile.jpg');">
+	    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/mobile/acommonwealth.png">    	 	
+	</div>	
+	<div class="section" style="background-image:url('<?php  bloginfo('template_directory'); ?>/assets/img/4E/4E4-background-mobile.jpg');">
+	    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/mobile/abetterlife.png">    	 	
+	</div>	
+	<div class="section" style="background-image:url('<?php  bloginfo('template_directory'); ?>/assets/img/4E/4E5-background-mobile.jpg');">
+	    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/mobile/alivingland.png">    	 	
+	</div>	
+	<div class="section" style="background-image:url('<?php  bloginfo('template_directory'); ?>/assets/img/mobile/split-screen.jpg');">
+	    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/4E/4f-content.png">
+	</div>
+	<div class="section" style="background-image:url('<?php  bloginfo('template_directory'); ?>/assets/img/mobile/vault.jpg');">
+	    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/5/5b-content.png">
+	    <a href="#" class="btn-default btn-main os-animation">Buy Tickets</a>
+	</div>
 </div>

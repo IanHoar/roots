@@ -133,14 +133,16 @@
 
   var manageSlide = function(index, nextIndex, direction, elem){
 
-        if (nextIndex === 23) {
+        if (nextIndex === 23) 
+        {
           $.fn.fullpage.setAllowScrolling(false);
         }
         else if (nextIndex === 25)
         {
           $.fn.fullpage.setAllowScrolling(false);
         }
-        else {
+        else 
+        {
           $.fn.fullpage.setAllowScrolling(true);
         }
   };
@@ -167,6 +169,34 @@
       }
   };
 
+  var sectionCrossfade = function(index, nextIndex, direction, elem) {
+
+    var nextElem = $(".fp-section:nth-child("+nextIndex+")");
+    if (elem.hasClass("crossfade") && nextElem.hasClass("crossfade") && isCrossfading === false)
+    {
+      isCrossfading = true;
+      var exitingElement = elem;
+      var clonedExitingElement = exitingElement.clone(true);
+
+      clonedExitingElement.css({
+        "position" : "absolute",
+        "z-index" : 2,
+        "marginTop" : -$(".fp-section").height(),
+      });
+
+      $("body").after(clonedExitingElement);
+
+      setTimeout(function(){
+
+        clonedExitingElement.stop().animate({opacity: 0}, 500, function(){
+
+          clonedExitingElement.remove();
+          isCrossfading = false;
+        });
+      }, 750);
+    }
+  };
+
   $('#fullpage').fullpage({
     //Scrolling
     scrollOverflow: false,
@@ -184,14 +214,16 @@
     verticalCentered: true,
     resize : true,
     fixedElements: '.navbar-static-top, .content-info',
-    responsive: 0,
+    responsive: 767,
 
     //events
     onLeave: function(index, nextIndex, direction){
+      $.fn.fullpage.setAllowScrolling(true);
       manageVideos(index, nextIndex, direction, $(this));
       staticSections(index, nextIndex, direction, $(this));
       manageNav(index, nextIndex, direction, $(this));
       manageSlide(index, nextIndex, direction, $(this));
+      sectionCrossfade(index, nextIndex, direction, $(this));
     },
     afterLoad: function(anchorLink, index){
       animateElements();
