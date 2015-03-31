@@ -71,26 +71,19 @@ header.banner {
 	#menu-primary-navigation {
 
 	  margin-top: 10px;
+	  float: right;
 		
 		li {
-			float: left;
-			width: 170px;
-
 			a {
 				padding-top: 0px;
 				padding-bottom: 0px;
 				color: white;
 				font-weight: 300;
 				text-transform: uppercase;
-				font-size: 12px;
+				font-size: 16px;
 				letter-spacing: 1.5px;
 				line-height: 20px;
 			}
-		}
-
-		li:nth-child(odd)
-		{
-			clear: both;
 		}
 
 		li.active a{
@@ -101,33 +94,19 @@ header.banner {
 		    content: url(../img/menu/arrow.png);
 		    position: absolute;
 		    margin-left: -16px;
-		    margin-top: 1px;
+		    margin-top: -2px;
 		}
 	}
 
 	#dates {
 
-		margin-top: 10px;
-
-		ul {
-			list-style: none;
-			padding-left: 0px;
-			width: 100%;
-
-			li {
-				color: white;
-				font-weight: 300;
-				font-size: 12px;
-				letter-spacing: 1.5px;
-				text-transform: uppercase;
-				line-height: 15px;
-			}
-		}
+		margin-top: 20px;
 
 		.btn-default {
 			color: black;
 			font-size: 12px;
 			background: @brand-primary;
+			border: 2px solid @brand-primary;
 			padding: 4px 8px 4px 8px;
 			text-transform: uppercase;
 			text-decoration: none;
@@ -135,10 +114,12 @@ header.banner {
 			font-weight: 600;
 			border-radius: 0px;
 			float: right;
-			clear: both;
 
-			&:nth-child(2) {
-				margin-top: 7px;
+			&.btn-invert {
+				background:#232020;	
+				border: 2px solid @brand-primary;
+				color: @brand-primary;
+				margin-left: 10px;
 			}
 		}
 
@@ -463,8 +444,13 @@ footer.content-info {
 	font-weight: 600;
 	border-radius: 4px;
 	display: block;
-	width: 170px;
+	width: 180px;
 	margin: 20px auto 0 auto;
+	letter-spacing: 2px;
+
+	&.btn-wide {
+		width: 270px;
+	}
 }
 
 .loader {
@@ -515,6 +501,10 @@ footer.content-info {
 	}
 }
 
+.compare {
+	background: black;
+}
+
 .fullscreen {
 	background-size: cover;
 	background-position: center;
@@ -527,12 +517,12 @@ footer.content-info {
 	background-position: 50% 50%;
 }
 
-.info-button {
+.info-button, .credits-button {
 	display: block;
 	background-image: url(../img/flyout/info-button.png);
 	background-repeat: no-repeat;
-	width: 48px;
-	height: 48px;
+	width: 31px;
+	height: 30px;
 	position: absolute;
 	bottom: 0px;
 	right: 0px;
@@ -542,8 +532,11 @@ footer.content-info {
     -o-transition:  opacity .5s ease-in-out;
     transition:  opacity .5s ease-in-out;
 }
+.credits-button {
+	background-image: url(../img/flyout/credits-button.png);
+}
 
-.active .info-button {
+.active .info-button, .active .credits-button {
 	opacity: 1;
 	z-index: 99;
 }
@@ -578,7 +571,6 @@ footer.content-info {
 	.popover-content {
 		font-family: @font-family-sans-serif;
 		font-weight: 300;
-		text-transform: uppercase;
 		font-size: 10px;
 		letter-spacing: 1.5px;
 		line-height: 15px;

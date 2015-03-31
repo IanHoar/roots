@@ -835,6 +835,7 @@
                     else if(options.autoScrolling){
 
                         //is the movement greater than the minimum resistance to scroll?
+                        console.log(touchstartY, touchEndY, ($window.height() / 100 * options.touchSensitivity));
                         if (Math.abs(touchStartY - touchEndY) > ($window.height() / 100 * options.touchSensitivity)) {
                             if (touchStartY > touchEndY) {
                                 scrolling('down', scrollable);
@@ -945,7 +946,7 @@
 
                 //haven't they scrolled in a while?
                 //(enough to be consider a different scrolling action to scroll another section)
-                if(timeDiff > 200){
+                if(timeDiff > 1000){
                     //emptying the array, we dont care about old scrollings for our averages
                     scrollings = [];
                 }
@@ -1334,11 +1335,11 @@
         function mouseMoveHandler(e){
             // moving up
             if(canScroll){
-                if (e.pageY < oldPageY){
+                if (e.pageY < oldPageY + 300){
                     FP.moveSectionUp();
 
                 // moving downw
-                }else if(e.pageY > oldPageY){
+                }else if(e.pageY > oldPageY - 300){
                     FP.moveSectionDown();
                 }
             }

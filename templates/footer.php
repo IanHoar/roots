@@ -14,7 +14,7 @@
       <img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/arthur.png">
       <img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/goldcorp.png">
       <img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/francis.png">
-      <img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/rbcm-foundation.png">
+      <img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/RBCM-foundation.png">
     </div>
     <div class="col-sm-3" id="dates-footer">
       <h4>SPONSORS</h4>
@@ -40,7 +40,7 @@
       </ul>
     </div>
     <div class="col-sm-12">
-      <a href="http://royalbcmuseum.bc.ca/">COPYRIGHT 2015, RBCM</a>
+      <a href="http://royalbcmuseum.bc.ca/">COPYRIGHT 2015, ROYAL BC MUSEUM</a>
     </div>
   </div>
 </footer>

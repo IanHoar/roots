@@ -1,7 +1,7 @@
 <header class="banner navbar navbar-default navbar-static-top" role="banner">
   <div class="container-fluid">
     <div class="navbar-header col-sm-3">
-      <a class="navbar-brand" href="http://royalbcmuseum.bc.ca/gold/"><?php bloginfo('name'); ?></a>
+      <a class="navbar-brand" href="https://royalbcmuseum.bc.ca/goldrush/"><?php bloginfo('name'); ?></a>
     </div>
 
     <div class="col-sm-6" id="section-nav">
@@ -14,8 +14,8 @@
       </nav>
     </div>
     <div class="col-sm-2" id="dates">
-      <a href="#" class="btn-default">Buy Tickets</a>
-      <a href="#" class="btn-default">Events and Programs</a>
+      <a href="http://royalbcmuseum.bc.ca/gold-events/" class="btn-default btn-invert">Events</a>
+      <a href="https://sales.royalbcmuseum.bc.ca/Default.aspx?tagid=4" class="btn-default">Buy Tickets</a>
       <span class="music">Music<div></div></span>
     </div>
     <div class="col-sm-1" id="rbcm-logo">
