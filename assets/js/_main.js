@@ -45,8 +45,8 @@
 
     if (index === 0){$.fn.fullpage.moveTo(1);}
     else if (index === 1){$.fn.fullpage.moveTo(10);}
-    else if (index === 2){$.fn.fullpage.moveTo(13);}
-    else if (index === 3){$.fn.fullpage.moveTo(24);}
+    else if (index === 2){$.fn.fullpage.moveTo(14);}
+    else if (index === 3){$.fn.fullpage.moveTo(25);}
   });
 
   var animateElements = function() {
@@ -82,21 +82,21 @@
 
   var staticSections = function(index, nextIndex, direction, elem) {
 
-    if(nextIndex === 24 && direction === 'down'){
+    if(nextIndex === 25 && direction === 'down'){
       $("#section-5a-content").fadeIn();
     }
-    else if(nextIndex === 23 && direction === 'up'){
+    else if(nextIndex === 24 && direction === 'up'){
       $("#section-5a-content").fadeOut("fast");
     }
-    else if(nextIndex === 27 && direction === 'down'){
+    else if(nextIndex === 28 && direction === 'down'){
       $("#section-5a-content").fadeOut("fast");
     }
-    else if(nextIndex === 26 && direction === 'up'){
+    else if(nextIndex === 27 && direction === 'up'){
       $("#section-5a-content").fadeIn();
     }
 
     var footerHeight = $("footer").height();
-    if(nextIndex === 28 && direction === 'down'){
+    if(nextIndex === 29 && direction === 'down'){
       $("footer").animate({
         bottom : 0,
       }, 500);
@@ -104,7 +104,7 @@
         "marginTop": -footerHeight + "px",
       }, 500);
     }
-    else if(nextIndex < 28 && direction === 'up'){
+    else if(nextIndex < 29 && direction === 'up'){
       $("footer").animate({
         bottom : -footerHeight + "px",
       }, 500);
@@ -123,11 +123,11 @@
       $("#menu-primary-navigation li.active").removeClass("active");
       $("#menu-primary-navigation li:nth-child(2)").addClass("active");
     }
-    else if (nextIndex >= 13 && nextIndex < 24){
+    else if (nextIndex >= 14 && nextIndex < 25){
       $("#menu-primary-navigation li.active").removeClass("active");
       $("#menu-primary-navigation li:nth-child(3)").addClass("active");
     }
-    else if (nextIndex >= 24){
+    else if (nextIndex >= 25){
       $("#menu-primary-navigation li.active").removeClass("active");
       $("#menu-primary-navigation li:nth-child(4)").addClass("active");
     }
@@ -135,11 +135,11 @@
 
   var manageSlide = function(index, nextIndex, direction, elem){
 
-        if (nextIndex === 20) 
+        if (nextIndex === 21) 
         {
           $.fn.fullpage.setAllowScrolling(false);
         }
-        else if (nextIndex === 22)
+        else if (nextIndex === 23)
         {
           $.fn.fullpage.setAllowScrolling(false);
         }
@@ -150,7 +150,7 @@
   };
 
   var sectionSlide = function(anchorLink, index, slideIndex, element) {
-      if (index === 20 && slideIndex < 4) {
+      if (index === 21 && slideIndex < 4) {
         if (slideIndex === 0 || slideIndex === 3) {
           $.fn.fullpage.setAllowScrolling(true);
         }
@@ -158,7 +158,7 @@
           $.fn.fullpage.setAllowScrolling(false);
         }
       }
-      else if (index === 22 && slideIndex < 5) {
+      else if (index === 23 && slideIndex < 5) {
         if (slideIndex === 0 || slideIndex === 4) {
           $.fn.fullpage.setAllowScrolling(true);
         }
@@ -200,7 +200,7 @@
   };
 
   var managePause = function(index, nextIndex, direction, elem) {
-      if (index === 13) {
+      if (index === 14) {
         $.fn.fullpage.setAllowScrolling(false);
         setTimeout(function(){
           $.fn.fullpage.setAllowScrolling(true);
@@ -333,7 +333,7 @@
       $("#video3").fadeIn();
       $("#video3").addClass("playing");
     }
-    else if(nextIndex >= 17 && nextIndex < 19 && $("#video4").hasClass("playing") === false){
+    else if(nextIndex >= 18 && nextIndex < 20 && $("#video4").hasClass("playing") === false){
       $('.playing').removeClass("playing");
 
       videos.each(function(){
@@ -346,7 +346,7 @@
       $("#video4").fadeIn();
       $("#video4").addClass("playing");
     }
-    else if(nextIndex >= 23 && nextIndex < 27 && $("#video2").hasClass("playing") === false){
+    else if(nextIndex >= 24 && nextIndex < 28 && $("#video2").hasClass("playing") === false){
       $('.playing').removeClass("playing");
 
       videos.each(function(){
@@ -359,7 +359,7 @@
       $("#video2").fadeIn();
       $("#video2").addClass("playing");
     }
-    else if(nextIndex >= 27 && $("#video5").hasClass("playing") === false){
+    else if(nextIndex >= 28 && $("#video5").hasClass("playing") === false){
       $('.playing').removeClass("playing");
 
       videos.each(function(){
