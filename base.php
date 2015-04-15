@@ -26,9 +26,9 @@
   <?php wp_footer(); ?>
   <div id="section-5a-content">
     <div style="bottom:50px;" class="absolute-outer">
-        <img src="<?php  bloginfo('template_directory'); ?>/assets/img/5/5A-title.png" class="absolute-inner">
+        <img src="<?php  bloginfo('template_directory'); ?>/assets/img/5/5A-title.png" class="absolute-inner" style="opacity:0;">
         <br />
-      <img src="<?php  bloginfo('template_directory'); ?>/assets/img/5/5A-copy.png" class="absolute-inner">
+        <img src="<?php  bloginfo('template_directory'); ?>/assets/img/5/5A-copy.png" class="absolute-inner" style="opacity:0;">
     </div>
   </div>
 </body>

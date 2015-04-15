@@ -3,7 +3,7 @@
     <div class="col-sm-1" id="rbcm-logo">
         <a href="http://royalbcmuseum.bc.ca"></a>
     </div>
-    <div class="col-sm-6" id="section-nav">
+    <div class="col-sm-5" id="section-nav">
       <nav class="collapse navbar-collapse" role="navigation">
         <?php
           if (has_nav_menu('primary_navigation')) :
@@ -12,7 +12,7 @@
         ?>
       </nav>
     </div>
-    <div class="col-sm-2" id="dates">
+    <div class="col-sm-3 hidden-xs" id="dates">
       <a href="http://royalbcmuseum.bc.ca/gold-events/" class="btn-default btn-invert">Events</a>
       <a href="https://sales.royalbcmuseum.bc.ca/Default.aspx?tagid=4" class="btn-default">Buy Tickets</a>
       <span class="music"><div></div></span>

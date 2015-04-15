@@ -78,7 +78,7 @@ header.banner {
 				padding-top: 0px;
 				padding-bottom: 0px;
 				color: white;
-				font-weight: 300;
+				font-weight: 400;
 				text-transform: uppercase;
 				font-size: 16px;
 				letter-spacing: 1.5px;
@@ -100,11 +100,11 @@ header.banner {
 
 	#dates {
 
-		margin-top: 40px;
+		margin-top: 36px;
 
 		.btn-default {
 			color: black;
-			font-size: 12px;
+			font-size: 18px;
 			background: @brand-primary;
 			border: 2px solid @brand-primary;
 			padding: 4px 8px 4px 8px;
@@ -114,6 +114,7 @@ header.banner {
 			font-weight: 600;
 			border-radius: 0px;
 			float: right;
+			letter-spacing: 2px;
 
 			&.btn-invert {
 				background:#232020;	
@@ -132,6 +133,7 @@ header.banner {
 
 			div {
 				margin-right: 10px;
+				margin-top: 4px;
 				width:27px;
 				height: 27px;
 				background-image: url(../img/menu/unmute.png);
@@ -391,14 +393,7 @@ footer.content-info {
 
 /********************* styles ********************/
 
-.gold-pan {
-	// display: table !important;
-	// width: 100%;
-	// .pan {
-	// 	max-height: 50%;
-	// 	width: auto!important;
-	// }
-}
+
 
 .horizontal {
 
@@ -411,6 +406,7 @@ footer.content-info {
 	.fp-slide{
 		background-position: 50% 50%;
 		background-repeat: no-repeat;
+		background-size: 100% auto;
 	}
 }
 
@@ -503,11 +499,16 @@ footer.content-info {
 
 	&.gt-full {
 		top: 0;
+		max-height: 100%;
 	}
 }
 
 .compare {
 	background: black;
+}
+
+#image-compare {
+	margin-top: 20px;
 }
 
 .fullscreen {
@@ -732,12 +733,6 @@ footer.content-info {
 	}
 }
 
-.section4a {
-	background-repeat: no-repeat;
-	background-size: initial!important;
-	background-position: center center!important;
-}
-
 /*********************** full page ****************/
 
 .fp-tableCell {
@@ -827,8 +822,9 @@ footer.content-info {
 	}
 
 	.navbar-header {
-		float: left;
-		width:40%!important;
+		float: right;
+		width: 65%!important;
+	    margin-right: 20px!important;
 
 		.navbar-brand {
 			margin-top: 10px;
@@ -850,28 +846,36 @@ footer.content-info {
 	}
 
 	#dates {
-		width: 46%;
+		width: 26%;
 		float: left;
+	    margin-top: 15px!important;
+	    float: right;
 
-		ul li {
-			font-size: 8px!important;
-			line-height: 12px!important;
-		}
+	    .btn-default:nth-child(2) {
+	    	margin-top: 10px;
+	    }
+
+	    .btn-default {
+			font-size: 12px!important;
+			padding: 4px 4px 4px 4px!important;
+			letter-spacing: 0px!important;
+	    }
 	}
 
 	#rbcm-logo {
 		width: 20%;
-		
+
 		a {
 			width: 100%!important;
-			height: 98px!important;
-			right: 0!important;
+			left: 0px!important;
+		  height: 98px!important;
 		}
 	}
 
 	footer.content-info {
 		position: relative;
 		bottom: 0;
+		max-height: none;
 
 	    .container-fluid {
 	    	height: 100%;
@@ -928,9 +932,15 @@ and (min-device-width : 320px)
 and (max-device-width : 480px) 
 and (orientation : portrait) {
 
-	.fp-section {
+	.fp-section:not(.ship) {
 		padding-top: 100px;
 		padding-bottom: 100px;
 	}
+}
+
+.section4a {
+	background-repeat: no-repeat!important;
+	background-size: auto!important;
+	background-position: center center!important;
 }
 

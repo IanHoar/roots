@@ -4,7 +4,7 @@
         <h4>IN COLLABORATION WITH</h4>
         <img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/canadian-museum.png" style="display: block;margin-bottom: 20px;">
         <br />
-        <p>Gold Rush: El Dorado in British Columbia is organized by the Royal BC Museum, Victoria, BC, Canada, in collaboration with Canadian Museum of History, Gatineau, QC, Canada
+        <p class="hidden-xs">Gold Rush: El Dorado in British Columbia is organized by the Royal BC Museum, Victoria, BC, Canada, in collaboration with Canadian Museum of History, Gatineau, QC, Canada
         <br />
         <br />
         Ruée vers l’or! El Dorado en Colombie-Britannique est organisé par le Royal BC Museum, Victoria, BC, Canada, en collaboration avec le Musée canadien de l’histoire, Gatineau, QC, Canada.</p>
