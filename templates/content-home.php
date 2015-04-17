@@ -151,7 +151,7 @@
 	<div class="section no_overflow section4a" style="background-image:url(<?php  bloginfo('template_directory'); ?>/assets/img/4A/4A-content3.png);">
         <a class="credits-button" data-toggle="popover" data-content="<i>Building a cantilever bridge going west; Canadian Pacific Railway, near Cisco Flat south of Lytton, Fraser River, Andrew Onderdonk, contractor | From Onderdonk Album No. 1, page 30 | 1884 | BC Archives D-08738</i>"></a>
 	</div>	
-	<div class="section horizontal"  style="background-image:url('<?php  bloginfo('template_directory'); ?>/assets/img/4B/panorama-background.jpg');">
+	<div class="section horizontal"  style="background-image:url('<?php  bloginfo('template_directory'); ?>/assets/img/4B/panorama-background.jpg'); padding-top:50px;">
 	    <div class="slide" style="background-image:url('<?php  bloginfo('template_directory'); ?>/assets/img/4B/4b-background-1.jpg');">
 		    <div class="slide-inner" style="background-image:url('<?php  bloginfo('template_directory'); ?>/assets/img/4B/4B-content-1.png');"></div>
 	    </div>
@@ -204,7 +204,7 @@
 	</div>	
 	<div class="section compare">
 		<div id="image-compare" class='twentytwenty-container'>
-		   <img src="<?php  bloginfo('template_directory'); ?>/assets/img/4E/4F-background1.jpg">
+		   <img src="<?php  bloginfo('template_directory'); ?>/assets/img/4E/4F-background1.jpg" class="twentytwenty-before">
 		   <img src="<?php  bloginfo('template_directory'); ?>/assets/img/4E/4F-background2.jpg">
 		</div>
 		<div class="absolute-outer" style="top:35%;">

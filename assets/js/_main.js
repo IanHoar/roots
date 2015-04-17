@@ -2,7 +2,7 @@
 
   var isCrossfading = false;
 
-  var oldIE;
+  var oldIE = false;
   if ($('html').is('.ie6, .ie7, .ie8, .ie9')) {
       oldIE = true;
   }
@@ -13,9 +13,11 @@
     $(this).find("a").removeAttr("href");
   });
 
-
   var resizeCompare = function() {
     $('#image-compare').height($(".fp-section").height());
+
+    var offset = ($(window).width()/2) - 1100 * ($(window).height()/1100);
+    $('#image-compare').css({"margin-left" : offset + "px"});
   };
 
   $(".music").click(function(){
@@ -69,16 +71,12 @@
   };
 
   var resizeVideos = function() {
-    $(".covervid-video").each(function(){
-      
-      var fullscreenHeight = $(".fp-section").height();
-      var paddingTop = 105;
-      
-      $(this).height(fullscreenHeight);
-      
-      $('.covervid-video').each(function(){
-        $(this).coverVid(2200, 1100);
-      });
+
+    var fullscreenHeight = $(".fp-section").height() - 105;
+    $(".covervid-wrapper").height(fullscreenHeight);
+        
+    $('.covervid-video').each(function(){
+      $(this).coverVid(2200, 1100);
     });
   };
 
@@ -264,8 +262,8 @@
         $("#image-compare").twentytwenty();  
        }, 2000);
 
-      resizeVideos();
       resizeCompare();
+      resizeVideos();
     },
     afterResize: function(){
       resizeVideos();

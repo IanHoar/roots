@@ -2,27 +2,26 @@
   <div class="container-fluid">
     <div class="col-sm-3" id="gold-rush-footer">
         <h4>IN COLLABORATION WITH</h4>
-        <img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/canadian-museum.png" style="display: block;margin-bottom: 20px;">
+        <a href="http://www.historymuseum.ca/home"><img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/canadian-museum.png" style="display: block;margin-bottom: 20px;"></a>
         <br />
-        <p class="hidden-xs">Gold Rush: El Dorado in British Columbia is organized by the Royal BC Museum, Victoria, BC, Canada, in collaboration with Canadian Museum of History, Gatineau, QC, Canada
+        <p class="hidden-xs">Gold Rush! El Dorado in British Columbia is organized by the Royal BC Museum, Victoria, BC, Canada, in collaboration with Canadian Museum of History, Gatineau, QC, Canada
         <br />
         <br />
-        Ruée vers l’or! El Dorado en Colombie-Britannique est organisé par le Royal BC Museum, Victoria, BC, Canada, en collaboration avec le Musée canadien de l’histoire, Gatineau, QC, Canada.</p>
-  	    <img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/banco.png">
+        Ruée vers l’or! El Dorado en Colombie-Britannique est réalisée par le Royal BC Museum, Victoria, Colombie-Britannique, en collaboration avec le Musée canadien de l’histoire, Gatineau, Québec.</p>
+  	    <a href="http://www.banrepcultural.org/gold-museum"><img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/banco.png"></a>
     </div>
     <div class="col-sm-6" id="allure">
       <h4>LEAD MARKETING PARTNER</h4>
-      <img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/tourism-victoria.png" id="tourism-victoria-logo">
+      <a href="http://www.tourismvictoria.com/"><img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/tourism-victoria.png" id="tourism-victoria-logo"></a>
       <h4>SPONSORED BY</h4>     
-      <img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/canadian-mint.png">
-      <img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/science.png">
-      <img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/arthur.png">
-      <img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/goldcorp.png">
-      <img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/francis.png">
-      <img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/RBCM-foundation.png">
-      <img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/helijet.png">
-      <img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/clipper.png">
-      <img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/bctransit.png">
+      <a href="http://www.mint.ca/store/template/home.jsp"><img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/canadian-mint.png"></a>
+      <a href="http://arthurvickers.com/"><img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/arthur.png"></a>
+      <a href="http://www.goldcorp.com/English/Home/default.aspx"><img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/goldcorp.png"></a>
+      <a href="http://royalbcmuseum.bc.ca/support-us/get-involved/kermode/"><img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/francis.png"></a>
+      <a href="http://royalbcmuseum.bc.ca/support-us/give/foundation/"><img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/RBCM-foundation.png"></a>
+      <a href="http://helijet.com/"><img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/helijet.png"></a>
+      <a href="http://www.clippervacations.com/"><img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/clipper.png"></a>
+      <a href="http://bctransit.com/"><img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/bctransit.png"></a>
     </div>
     <div class="col-sm-3" id="dates-footer">
       <h4>LENDERS</h4>
@@ -35,7 +34,7 @@
         <li>DAVID FOSTER FOUNDATION</li>
         <li>CROCKER ART MUSEUM</li>
         <li>BANK OF CANADA MUSEUM, NATIONAL CURRENCY  COLLECTION</li>
-        <li>CANADA SCIENCE AND TECHNOLOGY MUSEUMS CORPORATION</li>
+        <li>CANADA SCIENCE AND TECHNOLOGY MUSEUMS CORPORATION / SOCIÉTÉ DES MUSÉES DE SCIENCES ET TECHNOLOGIES DU CANADA</li>
         <li>LAND TITLE AND SURVEY AUTHORITY OF BC</li>
         <li>BC MUSEUMS ASSOCIATION</li>
         <li>BARKERVILLE HISTORIC TOWN</li>
@@ -60,4 +59,15 @@
       <a href="http://royalbcmuseum.bc.ca/">COPYRIGHT 2015, ROYAL BC MUSEUM</a>
     </div>
   </div>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-61951472-1', 'auto');
+  ga('send', 'pageview');
+
+  </script>
 </footer>
