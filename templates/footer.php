@@ -19,7 +19,7 @@
       <a href="http://www.goldcorp.com/English/Home/default.aspx"><img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/goldcorp.png"></a>
       <a href="http://royalbcmuseum.bc.ca/support-us/get-involved/kermode/"><img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/francis.png"></a>
       <a href="http://royalbcmuseum.bc.ca/support-us/give/foundation/"><img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/RBCM-foundation.png"></a>
-      <a href="http://helijet.com/"><img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/helijet.png"></a>
+      <a href="http://royalbcmuseum.bc.ca/helijet/"><img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/helijet.png"></a>
       <a href="http://www.clippervacations.com/"><img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/clipper.png"></a>
       <a href="http://bctransit.com/"><img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/bctransit.png"></a>
     </div>

@@ -1,5 +1,6 @@
 (function($) {
 
+Modernizr.load();
   var isCrossfading = false;
 
   var oldIE = false;
