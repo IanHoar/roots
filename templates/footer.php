@@ -11,7 +11,8 @@
   	    <a href="http://www.banrepcultural.org/gold-museum"><img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/banco.png"></a>
     </div>
     <div class="col-sm-6" id="allure">
-      <h4>LEAD MARKETING PARTNER</h4>
+      <h4>BOOK YOUR STAY<br />
+        CLICK HERE FOR GREAT RATES WITH OUR HOTEL PARTNERS</h4>
       <a href="http://www.tourismvictoria.com/"><img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/tourism-victoria.png" id="tourism-victoria-logo"></a>
       <h4>SPONSORED BY</h4>     
       <a href="http://www.mint.ca/store/template/home.jsp"><img src="<?php  bloginfo('template_directory'); ?>/assets/img/footer/canadian-mint.png"></a>

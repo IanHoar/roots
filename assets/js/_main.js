@@ -1,6 +1,5 @@
 (function($) {
 
-Modernizr.load();
   var isCrossfading = false;
 
   var oldIE = false;
@@ -121,7 +120,7 @@ Modernizr.load();
         bottom : -footerHeight + "px",
       }, 500);
       $("#video5wrapper").animate({
-        "marginTop": 0,
+        "marginTop": 105,
       }, 500);
     }
   };
@@ -212,12 +211,16 @@ Modernizr.load();
   };
 
   var managePause = function(index, nextIndex, direction, elem) {
+      
+    if (oldIE === false)
+    {
       if (index === 14) {
         $.fn.fullpage.setAllowScrolling(false);
         setTimeout(function(){
           $.fn.fullpage.setAllowScrolling(true);
         }, 5000);
       }
+    }
 
   };
 
