@@ -18,3 +18,929 @@
 @import "layouts/_pages";            // Page styling
 @import "layouts/pages/_home";       // Home page styling
 @import "layouts/_posts";            // Post styling
+@import "animate";                   // Animations
+
+/********* General Rules ***********/
+
+body {
+	background-color: black;
+}
+
+main.main {
+	overflow: hidden;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.navbar {
+	margin-bottom: 0px;
+}
+
+.row {
+	position: relative;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+	background-color: transparent;
+}
+
+header.banner {
+
+	top: 0;
+	position: fixed;
+	width: 100%;
+	background:#232020;
+	border: none;
+
+	.navbar-brand {
+		display: block;
+		background-image: url(../img/menu/header-logo.png);
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: center center;
+		text-indent: -9999px;
+		width: 283px;
+		max-width: 100%;
+		height: @header-height;
+		float: right;
+	}
+
+	#section-nav {
+		margin-top: 15px;
+	}
+
+	#menu-primary-navigation {
+
+	  margin-top: 30px;
+		
+		li {
+			a {
+				padding-top: 0px;
+				padding-bottom: 0px;
+				color: white;
+				font-weight: 400;
+				text-transform: uppercase;
+				font-size: 16px;
+				letter-spacing: 1.5px;
+				line-height: 20px;
+			}
+		}
+
+		li.active a{
+			color: @brand-primary;
+		}
+
+		li.active a:before {
+		    content: url(../img/menu/arrow.png);
+		    position: absolute;
+		    margin-left: -12px;
+		    margin-top: -2px;
+		}
+	}
+
+	#dates {
+
+		margin-top: 36px;
+
+		.btn-default {
+			color: black;
+			font-size: 18px;
+			background: @brand-primary;
+			border: 2px solid @brand-primary;
+			padding: 4px 8px 4px 8px;
+			text-transform: uppercase;
+			text-decoration: none;
+			cursor: pointer;
+			font-weight: 600;
+			border-radius: 0px;
+			float: right;
+			letter-spacing: 2px;
+
+			&.btn-invert {
+				background:#232020;	
+				border: 2px solid @brand-primary;
+				color: @brand-primary;
+				margin-left: 10px;
+			}
+		}
+
+		.music {
+			text-transform: uppercase;
+			font-size: 10px;
+			color: white;
+			margin-top: 10px;
+			cursor: pointer;
+
+			div {
+				margin-right: 10px;
+				margin-top: 4px;
+				width:27px;
+				height: 27px;
+				background-image: url(../img/menu/unmute.png);
+				float: right;
+			}
+
+			&.paused div {
+				background-image: url(../img/menu/mute.png);
+			}
+		}
+	}
+
+	#rbcm-logo {
+		position: relative;
+		max-width: @header-height;
+		float: left;
+
+		a { 
+			position: absolute;
+			display: block;
+			width: 100%;
+			height: @header-height;
+			background-image: url(../img/menu/rbcm-logo.png);
+			background-repeat: no-repeat;
+			background-position: center;
+			left: -15px;
+		}
+	}
+}
+
+.accent {
+	color: @brand-primary!important;
+}
+
+.covervid-wrapper {
+	z-index: -2;
+    position: fixed;
+    margin-top: @header-height;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.covervid-video {
+	display: none;
+}
+
+.align-right {
+
+	text-align: center;
+	width: 50%;
+	float: right;
+}
+
+.extend-above {
+	position: absolute;
+	margin-top: -800px;
+	z-index: 99;
+	width: 100%;
+
+	img {
+		display: block;
+		margin: auto;
+	}
+}
+
+footer.content-info {
+
+	overflow: hidden;
+	position: absolute;
+	bottom: -650px;
+	max-height: 650px;
+
+	p {
+		clear: both;
+		color: white;
+		font-size: 10px;
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+
+	img {
+		float: left;
+		max-width: 100%;
+	}
+
+	.col-sm-6 {
+
+		img {
+			max-width: 50%;
+		}
+	}
+
+	.container-fluid {
+		background:#232020;
+	}
+
+	#rbcm-logo-footer {
+		position: relative;
+		height: 100%;
+
+		a { 
+			position: absolute;
+			display: block;
+			background: @brand-primary;
+			width: 100%;
+			height: 100%;
+			background-image: url(../img/menu/rbcm-logo.png);
+			background-repeat: no-repeat;
+			background-position: bottom;
+			right: -15px;
+		}
+	}
+
+	#tourism {
+		border-right: 1px solid rgba(255, 255, 255, 0.4);
+		margin-top: 20px;
+		margin-bottom: 30px;
+	}
+
+	#allure {
+		border-right: 1px solid rgba(255, 255, 255, 0.4);
+		margin-top: 20px;
+		margin-bottom: 30px;
+		padding-left: 30px;
+	}
+
+	#gold-rush-footer {
+		border-right: 1px solid rgba(255, 255, 255, 0.4);
+		margin-top: 20px;
+		margin-bottom: 30px;
+		padding-left: 30px;
+	}
+
+	#dates-footer {
+		margin-top: 20px;
+		padding-left: 30px;
+
+		ul {
+			list-style: none;
+			padding-left: 0px;
+			width: 100%;
+			margin-bottom: 25px;
+
+			li {
+				color: white;
+				font-weight: 300;
+				font-size: 10px;
+				letter-spacing: 1.2px;
+				text-transform: uppercase;
+				line-height: 13px;
+				margin-top: 3px;
+			}
+
+			li.accent {
+				font-size: 11px;
+				margin-bottom: 10px;
+			}
+		}
+
+		.btn-default {
+			color: white;
+			font-size: 14px;
+			background: @brand-primary;
+			padding: 6px 14px 6px 14px;
+			border: solid white 1px;
+			text-transform: uppercase;
+			text-decoration: none;
+			cursor: pointer;
+			margin-top: 10px;
+			font-weight: 600;
+			border-radius: 0px;
+		}
+
+		p {
+			color: rgba(255, 255, 255, 0.8);
+			font-family: @font-family-sans-serif;
+			margin-top: 30px;
+			line-height: 15px;
+			letter-spacing: 1.5px;
+			font-weight: 300;
+			font-size: 11px;
+			max-width: 188px;
+		}
+
+		a:not(.btn-default) {
+		    margin-top: 16px;
+		    display: block;
+  			color: rgba(255, 255, 255, 0.5);
+			font-size: 10px;
+		}
+	}
+
+	h4 {
+		color: white;
+		font-size: 14px;
+		margin-top: 2px;
+		display: block;
+		margin-bottom: 25px;
+		clear: both;
+	}
+
+	.col-sm-12 a {
+		color: rgba(255, 255, 255, 0.5);
+		font-size: 10px;
+	}
+
+	 #tourism-victoria-logo {
+    	margin-bottom:25px;
+    }
+}
+
+@media (max-width: 888px) {
+
+	footer.content-info {
+		
+		#dates-footer ul li {
+			font-size: 9px;
+			letter-spacing: 1.5px;
+			line-height: 12px;
+			margin-top: 4px;
+
+		}
+	}
+}
+
+// ---------------  Section Rules ---------------//
+
+.absolute-outer {
+	position: absolute;
+	left: 50%;
+}
+
+.absolute-inner {
+	position: relative; 
+	left: -50%;
+}
+
+.gold-circle {
+	background-image: url(../img/1B/1-B1-goldcircle.png);
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+ .gold-circle-2 {
+	background-image: url(../img/1B/1-B1-goldcircle-2.png);
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.gold-circle-artifact {
+	background-image: url(../img/2A/2c-background.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+/********************* styles ********************/
+
+
+
+.horizontal {
+
+    -webkit-transition:background-position 1.5s ease-in-out;  
+    -moz-transition:background-position 1.5s ease-in-out;  
+    -o-transition:background-position 1.5s ease-in-out;  
+    transition:background-position 1.5s ease-in-out;
+    background-position-x: 0%; 
+
+	.fp-slide{
+		background-position: 50% 50%;
+		background-repeat: no-repeat;
+		background-size: 100% auto;
+	}
+}
+
+.no_overflow {
+	overflow: hidden;
+}
+
+.section-wrapper {
+	overflow: hidden;
+}
+
+.normal-scroll-inner {
+	min-height: 1100px;
+}
+
+.attach-bottom {
+	bottom: 0;
+}
+
+#section-5a-content {
+	display: none;
+}
+
+#section-4f-content {
+	display: none;
+}
+
+.btn-default.btn-main{
+	color: white;
+	font-size: 16px;
+	background: @brand-primary;
+	padding: 8px 30px 8px 30px;
+	text-transform: uppercase;
+	text-decoration: none;
+	cursor: pointer;
+	font-weight: 600;
+	border-radius: 4px;
+	display: block;
+	width: 180px;
+	margin: 20px auto 0 auto;
+	letter-spacing: 2px;
+
+	&.btn-wide {
+		width: 280px;
+	}
+}
+
+.loader {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background-image: url(../img/loader.gif); 
+	background-position: 50% 50%;
+	background-repeat: no-repeat; 
+	background-color: #000;
+}
+
+.coin-text {
+	margin-top: -30px;
+}
+
+.artifact {
+	max-height: 200px;
+}
+
+#scroll-down {
+	color: rgba(255, 255, 255, 0.5); 
+	text-align: center;
+	cursor: pointer;
+}
+
+.golden-thread {
+	width:2px;
+	position: absolute;
+	left: 50%;
+	opacity: 1!important;
+	z-index: -1;
+
+	&.gt-bottom {
+		margin-top: -40px;
+	}
+
+	&.gt-top {
+		bottom: 65%;
+		height: 50%;
+	}
+
+	&.gt-full {
+		top: 0;
+		max-height: 100%;
+	}
+}
+
+.compare {
+	background: black;
+}
+
+#image-compare {
+	margin-top: 20px;
+}
+
+.fullscreen {
+	background-size: cover;
+	background-position: center;
+}
+
+.slide .slide-inner {
+	width: 100%;
+	height: 100%;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+}
+
+.info-button, .credits-button {
+	display: block;
+	background-image: url(../img/flyout/info-button.png);
+	background-repeat: no-repeat;
+	width: 31px;
+	height: 30px;
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+	opacity: 0;
+	-webkit-transition:  opacity .5s ease-in-out;
+    -moz-transition:  opacity .5s ease-in-out;
+    -o-transition:  opacity .5s ease-in-out;
+    transition:  opacity .5s ease-in-out;
+}
+.credits-button {
+	background-image: url(../img/flyout/credits-button.png);
+}
+
+.active .info-button, .active .credits-button {
+	opacity: 1;
+	z-index: 99;
+}
+
+.active_section {
+	z-index: 1;
+}
+
+#menu-primary-navigation li {
+	cursor: pointer;
+}
+
+.popover {
+	background-color: black;
+	color: white;
+	border-radius: 0;	
+	bottom: 20px!important;
+	right: 20px!important;
+	top: auto!important;
+	left:auto!important;
+	border: 0px;
+	background-image: url(../img/flyout/exit.png);
+	background-repeat: no-repeat;
+	background-position: 99% 99%;
+	cursor: pointer;
+	position: absolute;
+	max-width: 700px;
+
+	.arrow {
+		display: none;
+	}
+
+	.popover-content {
+		font-family: @font-family-sans-serif;
+		font-weight: 300;
+		font-size: 15px;
+		letter-spacing: 1.5px;
+		line-height: 20px;
+		padding: 20px 30px;
+		white-space: pre-wrap;
+	}
+}
+
+.section5 .popover {
+	max-width: 400px;
+}
+
+#section1 {
+	#logo-french {
+		width: 200px;
+		margin-right: 80px;
+	}
+
+	#logo-chinese {
+		width: 200px;
+		margin-left: 80px;
+	}
+}
+
+#section-1B {
+
+	.fade-to-black-overlay {
+		width:100%;
+		height: 100%;
+		background-image: -webkit-linear-gradient(top, 
+		    rgba(0,0,0,0) 0%, 
+		    rgba(0,0,0,0) 80%,
+		    rgba(0,0,0,1.0) 100%
+		 );
+	}
+}
+
+#section-1C {
+
+	.fade-both-overlay {
+		width:100%;
+		height: 100%;
+		background-image: -webkit-linear-gradient(top, 
+		    rgba(0,0,0,1.0) 0%, 
+		    rgba(0,0,0,0) 20%,
+		    rgba(0,0,0,0) 80%,
+		    rgba(0,0,0,1.0) 100%
+		 );
+	}
+}
+
+.section-2 {
+	
+	background-color: black;
+
+	.bottom-container {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		height: 100%;
+
+		img  {
+			bottom: 0;
+
+			&.left {
+				left: 0;
+				position: absolute;
+			}
+
+			&.right {
+				right: 0;
+				position: absolute;
+			}
+
+			&.center {
+				
+			}
+		}
+	}
+}
+
+#section3-interstitial {
+	div {
+		height: 300px;
+		width: 100%;
+	}
+}
+
+#section3b {
+
+	.active #section_3_video {
+		opacity: 1!important;
+	}
+
+	#section_3_video
+	{
+		opacity: 0;
+		-webkit-transition: opacity 1.5s ease-in-out;
+	    -moz-transition: opacity 1.5s ease-in-out;
+	    -o-transition: opacity 1.5s ease-in-out;
+	    transition: opacity 1.5s ease-in-out;
+	}
+
+}
+
+.alpha-bg {
+	position: absolute;
+	background-color: rgba(0, 0, 0, 0.7);
+	background-image: url(../img/4E/4E-goldlines.png);
+	background-position: center center;
+	background-repeat: no-repeat;
+	width: 20%;
+	bottom:0;
+	text-align: center;
+}
+
+.fade-out-overlay {
+	width:100%;
+	height: 100%;
+	background-image: -webkit-linear-gradient(top, 
+	    rgba(0,0,0,0) 0%, 
+	    rgba(0,0,0,0) 60%,
+	    rgba(0,0,0,1.0) 95%,
+	    rgba(0,0,0,1.0) 100%
+	 );
+}
+
+.fade-in-overlay {
+	width:100%;
+	height: 100%;
+	background-image: -webkit-linear-gradient(top, 
+	    rgba(0,0,0,1.0) 0%, 
+	    rgba(0,0,0,0) 20%,
+	 );
+}
+
+#section5 {
+	
+	.absolute-outer {
+
+		margin-top: 40px;
+	}
+
+	#interstitial_5a{
+		height:600px;
+		background: black;
+	}
+}
+
+.section5 {
+	img {
+		height: 70%;
+	}
+}
+
+/*********************** full page ****************/
+
+.fp-tableCell {
+	text-align: center;
+}
+
+.fp-section:not(.gold-circle):not(.gold-circle-2):not(.gold-circle-artifact) {
+	background-size: cover;
+	background-position: center;
+}
+
+/************************** animations *************/
+
+.os-animation:not(.start-visible){
+  opacity: 0;
+}
+
+.os-animation.animated{
+    opacity: 1;
+}
+
+@media (width: 768px) {
+	#menu-primary-navigation {
+	  margin-top: 0px!important;
+	  margin-bottom: 10px;
+	}
+
+	header.banner #dates {
+	  margin-top: 20px;
+	}
+
+	.music {
+		display: none;
+	}
+
+	header.banner #rbcm-logo a {
+		height: 120px;
+	}
+
+	#logo-french {
+		max-width: 20%;
+		margin-right: 0px!important;
+	}
+
+	#logo-chinese {
+		max-width: 20%;
+		margin-left: 0px!important;
+	}
+}
+
+@media (max-width: 767px) {
+
+	section.sub-section {
+		height: 100%!important;
+		background-size: cover;
+	}
+
+	img {
+		max-width: 90%;
+	}
+
+	.full-width {
+		width: 100%!important;
+		max-width: 100%;
+	}
+
+	.gold-circle, .gold-circle-2 {
+		background-size: contain;
+	}
+
+	.wrap { 
+		padding-top: 0px;
+	}
+
+	header.banner {
+		position: absolute;
+		top: 0;
+
+		.container-fluid {
+			padding-left: 0px;
+			padding-right: 0px;
+		}
+
+		.music {
+			display: none;
+		}
+	}
+
+	.navbar-header {
+		float: right;
+		width: 65%!important;
+	    margin-right: 20px!important;
+
+		.navbar-brand {
+			margin-top: 10px;
+			width: 100%!important;
+		    height: 88px!important;
+		}
+	}
+
+	#section-nav {
+		display: none;
+	}
+
+	.navbar-toggle {
+		display: none;
+	}
+
+	#section-nav {
+		padding: 0!important;
+	}
+
+	#dates {
+		width: 26%;
+		float: left;
+	    margin-top: 15px!important;
+	    float: right;
+
+	    .btn-default:nth-child(2) {
+	    	margin-top: 10px;
+	    }
+
+	    .btn-default {
+			font-size: 12px!important;
+			padding: 4px 4px 4px 4px!important;
+			letter-spacing: 0px!important;
+	    }
+	}
+
+	#rbcm-logo {
+		width: 20%;
+
+		a {
+			width: 100%!important;
+			left: 0px!important;
+		  height: 98px!important;
+		}
+	}
+
+	footer.content-info {
+		position: relative;
+		bottom: 0;
+		max-height: none;
+
+	    .container-fluid {
+	    	height: 100%;
+
+	    	div {
+	    		border: 0!important;
+	    		height: auto!important;
+	    	}
+	    }
+
+	    img {
+
+	    	width: 40%;
+	    	text-align: center;
+	    	margin-bottom: 20px;
+
+	    	&:nth-child(2n +1)
+	    	{
+	    		margin-left: 10%;
+	    	}
+	    }
+
+	 	#dates-footer ul li {
+	 		text-align: center;
+	 	}
+
+	    h4 {
+	    	text-align: center;
+	    	margin-top: 15px;
+	    	margin-bottom: 15px;
+	    }
+
+	    .col-sm-6 {
+	    	img:nth-child(2n +1)
+	    	{
+	    		margin-left: 0%;
+	    	}
+
+	    	img:nth-child(2n)
+	    	{
+	    		margin-left: 10%;
+	    	}
+	    }
+
+	    #tourism-victoria-logo {
+	    	margin-bottom:25px;
+	    	margin-left: 30%;
+	    }
+	}
+}
+
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) 
+and (orientation : portrait) {
+
+	.fp-section:not(.ship) {
+		padding-top: 100px;
+		padding-bottom: 100px;
+	}
+}
+
+.section4a {
+	background-repeat: no-repeat!important;
+	background-size: auto!important;
+	background-position: center center!important;
+}
+

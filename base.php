@@ -1,5 +1,6 @@
 <?php get_template_part('templates/head'); ?>
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> data-spy="scroll" data-target=".navbar-collapse">
+    <div class="loader"></div>
 
   <!--[if lt IE 8]>
     <div class="alert alert-warning">
@@ -12,22 +13,23 @@
     get_template_part('templates/header');
   ?>
 
-  <div class="wrap container" role="document">
+  <div class="wrap container-fluid" role="document">
     <div class="content row">
       <main class="main" role="main">
         <?php include roots_template_path(); ?>
       </main><!-- /.main -->
-      <?php if (roots_display_sidebar()) : ?>
-        <aside class="sidebar" role="complementary">
-          <?php include roots_sidebar_path(); ?>
-        </aside><!-- /.sidebar -->
-      <?php endif; ?>
     </div><!-- /.content -->
   </div><!-- /.wrap -->
 
   <?php get_template_part('templates/footer'); ?>
 
   <?php wp_footer(); ?>
-
+  <div id="section-5a-content">
+    <div style="bottom:50px;" class="absolute-outer">
+        <img src="<?php  bloginfo('template_directory'); ?>/assets/img/5/5A-title.png" class="absolute-inner" style="opacity:0;">
+        <br />
+        <img src="<?php  bloginfo('template_directory'); ?>/assets/img/5/5A-copy.png" class="absolute-inner" style="opacity:0;">
+    </div>
+  </div>
 </body>
 </html>
